@@ -1,0 +1,97 @@
+-----------------------------------------------------------
+| QoR metrics               |         value               |
+-----------------------------------------------------------
+| Timing                    |                             |
+|     Setup WNS             |          107                |
+|     Setup TNS             |            0                |
+|     Num of violated S-EP  |            0                |
+-----------------------------------------------------------
+| Utilization               |                             |
+|     #registers            |        41954                |
+|     #luts                 |        34542                |
+|     #lut1                 |          209                |
+|     #lut1(~A)             |          205                |
+|     #slices               |        12786                |
+|     slices percentage     |       19.88%                |
+|     #RAMs                 |          246                |
+|     #DSPs                 |           74                |
+|     #f7mux                |        1.31%                |
+|     #MACROs               |         1292                |
+|     #insts in MACRO       |        13769                |
+-----------------------------------------------------------
+| kept_net                  |                             |
+|     #syn_keep             |          798                |
+|     #keep_hier            |          576                |
+|     #dont_touch           |            0                |
+|     #mark_debug           |            5                |
+|     #max_fanout_keep      |           25                |
+|     #async_reg            |            0                |
+-----------------------------------------------------------
+| Top 1% datanet fanout#    |        58.76                |
+| dff(single fanout)->dff   |         6472                |
+| dff(single fanout)->dram  |          738                |
+-----------------------------------------------------------
+| Over-quota path num*      |                             |
+|     Total Number          |            0                |
+|     Total Level Slack     |            0                |
+|     Worst Level Slack     |            0                |
+-----------------------------------------------------------
+| Rent**                    |                             |
+-----------------------------------------------------------
+Note*: Over-quota path shows the over-path-level-threshold path number of each clock.
+       The clock will not be shown if no path is with path level over the threshold.
+       The threshold is defined as worst path_margin / 800ps.
+Note**: Rent shows the rent exponent value of the modules whose rent value exceeds the threshold.
+        Only modules under top are reported, and the threshold is defined as 0.7.
+
+Logic Level Distribution
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Clock                                                                                     |  Period             |  0      |  1      |  2      |  3     |  4     |  5     |  6     |  7    |  8   |  9   |  10  |  11  |  12  |  13
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  board_ref_100m                                                                            |  10.000ns (100MHz)  |  0      |  6      |  10     |  1     |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  mipi_hs_clk                                                                               |  2.244ns (445MHz)   |  0      |  0      |  0      |  0     |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  sys_clk                                                                                   |  40.000ns (25MHz)   |  0      |  6      |  15     |  0     |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkdivout       |  4.488ns (222MHz)   |  16     |  4      |  0      |  0     |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkout          |  2.244ns (445MHz)   |  0      |  0      |  0      |  0     |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout       |  8.976ns (111MHz)   |  467    |  297    |  262    |  97    |  7     |  78    |  54    |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_pcie_ddr/u_ddr/dfi_clk                                                                  |  7.500ns (133MHz)   |  9260   |  2120   |  1169   |  1386  |  3140  |  816   |  11    |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_pcie_ddr/u_ddr/mcu_clk                                                                  |  20.000ns (50MHz)   |  1620   |  577    |  283    |  238   |  199   |  177   |  140   |  129  |  51  |  13  |  48  |  33  |  25  |  7
+  u_pcie_ddr/u_ddr/ref_clk                                                                  |  7.500ns (133MHz)   |  0      |  0      |  0      |  0     |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll0/pll_inst.clkc[1]    |  7.500ns (133MHz)   |  0      |  0      |  0      |  0     |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll0/pll_inst.clkc[2]    |  1.875ns (533MHz)   |  0      |  0      |  0      |  0     |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_sgdma_pll/pll_inst.clkc[0]                                                              |  8.000ns (125MHz)   |  0      |  1      |  21     |  23    |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_sgdma_pll/pll_inst.clkc[1]                                                              |  40.000ns (25MHz)   |  51     |  27     |  63     |  85    |  46    |  21    |  80    |  5    |  0   |  0   |  0   |  0   |  0   |  0
+  u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/core_clk       |  8.000ns (125MHz)   |  517    |  2      |  1      |  14    |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/pcie_user_clk  |  8.000ns (125MHz)   |  26808  |  16035  |  13422  |  6711  |  3866  |  4749  |  2426  |  849  |  33  |  1   |  0   |  0   |  0   |  0
+  u_ui_pll/pll_inst.clkc[0]                                                                 |  6.666ns (150MHz)   |  1      |  4      |  12     |  1     |  0     |  0     |  0     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  u_ui_pll/pll_inst.clkc[2]                                                                 |  18.519ns (53MHz)   |  38     |  72     |  60     |  12    |  37    |  17    |  2     |  0    |  0   |  0   |  0   |  0   |  0   |  0
+  Total                                                                                     |  NA                 |  38778  |  19151  |  15318  |  8568  |  7295  |  5858  |  2713  |  983  |  84  |  14  |  48  |  33  |  25  |  7
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hierarchical Rent Exponent Report
++---------------------------------------------------------------------------------+
+|Inst                 |Model               |Rent     |Cell     |Pin     |Term     |
++---------------------------------------------------------------------------------+
+|top                  |imx415_pcie_top     |0.16     |92813    |494482  |32       |
+|  u_lz77_rgb_c2h     |lz77_rgb_c2h_path_9 |0.54     |8133     |42168   |652      |
+|  u_pcie_ddr         |pcie_ddr_camera_10  |0.52     |18643    |90503   |787      |
+|  u_sgdma_subsys     |sgdma_subsys_13     |0.49     |26748    |115226  |614      |
+|  u_cam_video_source |cam_video_source_3  |0.42     |36228    |231352  |502      |
++---------------------------------------------------------------------------------+
+Note: Cell represents total number of cells inside module; Pin represents total number of pins
+      which have net connection inside module; Term represents total number of PIs and POs of module.
+      Rent represents the relationship between number of terms and number of cells in module.
+      A module with higher rent corresponds to highly connected logic and strong connectivity with others.
+Report gate stage QoR done.
+
+QoR Evaluation
+-----------------------------------------------------------------------------------------------------------------------------
+  ID        |  Priority  |  Description                                              |  Suggestion
+-----------------------------------------------------------------------------------------------------------------------------
+  QOR-3002  |  HIGH      |  - ERAM utilization 90.44% is higher than threshold 80%.  |  - Please confirm design ERAM usage.
+-----------------------------------------------------------------------------------------------------------------------------
+Note* (*) means this parameter has been set already.
+      (+) means this parameter has been set, suggest to upgrade higher effort level.
+Note** plesae resolve priority MUST FIX and HIGH issues firstly
+       because these have highly possible to block the timing convergence even stop the flow.
+Note*** some suggested settings are not suitable to use together
+        take care of using them separately if suggestion mentioned.

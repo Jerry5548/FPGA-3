@@ -1,0 +1,12 @@
+[Unit]
+Description=PCIe1 late rebind for FPGA EP
+After=multi-user.target
+Wants=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/pcie1_rebind.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

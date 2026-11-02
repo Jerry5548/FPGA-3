@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<BramConfig>
+    <AL006>
+        <A_ASYNC>ASYNC</A_ASYNC>
+        <A_OREGSET>RESET</A_OREGSET>
+        <A_OSRMODE>ASYNC</A_OSRMODE>
+        <B_ASYNC>SYNC</B_ASYNC>
+        <B_OREGSET>SET</B_OREGSET>
+        <B_OSRMODE>ASYNC</B_OSRMODE>
+        <CLK_MODE>ASYNC</CLK_MODE>
+        <ECC>DISABLE</ECC>
+        <ECC_D>DISABLE</ECC_D>
+        <SSROVERCE>ENABLE</SSROVERCE>
+    </AL006>
+    <FillMemoryInitValues>
+        <fill_all>NONE</fill_all>
+    </FillMemoryInitValues>
+    <GeneralConfig>
+        <Device>PH1A100SFG676</Device>
+        <Type>PH1_LOGIC_ERAM</Type>
+        <create_VHDL>true</create_VHDL>
+        <inst>pcie_cfg_rom</inst>
+    </GeneralConfig>
+    <GeneralOption>
+        <byte_write>none</byte_write>
+        <debug_enable>NO</debug_enable>
+        <pack_enable>NO</pack_enable>
+    </GeneralOption>
+    <ImplementOption>
+        <imp_type>20K</imp_type>
+    </ImplementOption>
+    <MemoryInitialization>
+        <init_file>../../al_pcie_if/ip/ph1a100_pcie/al_pcie_ip_ph1a100.dat</init_file>
+    </MemoryInitialization>
+    <MemoryType>
+        <mem_type>SP</mem_type>
+    </MemoryType>
+    <PortAOption>
+        <depth_a>128</depth_a>
+        <enable_a>disable</enable_a>
+        <enable_wea>disable</enable_wea>
+        <mode_a>NORMAL</mode_a>
+        <register_a>None</register_a>
+        <width_a>68</width_a>
+    </PortAOption>
+    <GeneratedFiles>
+        <VHDL Enable="false">pcie_cfg_rom.vhd</VHDL>
+        <Verilog Enable="true">pcie_cfg_rom.v</Verilog>
+    </GeneratedFiles>
+</BramConfig>

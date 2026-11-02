@@ -1,0 +1,398 @@
+mp4保存在mnt/tf
+
+mkdir -p /home/linaro/fpga-results
+
+无图像
+python3 process_mp4_fpga.py /mnt/tf/lowlight.mp4 \
+  --mode 8 --frames 300 \
+  --output /home/linaro/fpga-results/lowlight300.mp4
+
+
+python3 process_mp4_fpga.py /mnt/tf/noisy.mp4 \
+  --mode 5 --frames 300 \
+  --output /home/linaro/fpga-results/noisy300.mp4
+
+
+
+python3 process_mp4_fpga.py /mnt/tf/hazy1.mp4 \
+  --mode 9 --frames 300 \
+  --output /home/linaro/fpga-results/dehaze300.mp4
+
+有图
+cd /home/linaro/deploy
+python3 process_mp4_fpga.py /mnt/tf/hazy1.mp4 \
+  --mode 9 --frames 30 --display --connector 188 \
+  --output /home/linaro/fpga-results/hazy1_parallel_test.mp4
+
+cd /home/linaro/deploy
+python3 process_mp4_fpga.py /mnt/tf/lowlight.mp4 \
+  --mode 9 --frames 30 --display --connector 188 \
+  --output /home/linaro/fpga-results/lowlight.mp4
+
+cd /home/linaro/deploy
+python3 process_mp4_fpga.py /mnt/tf/person_car.mp4 \
+  --mode 9 --frames 30 --display --connector 188 \
+  --output /home/linaro/fpga-results/person_car.mp4
+
+
+重启后可在主机端powershell运行以下代码，可在主机端用网线控制
+
+D:\FPGA\AFC03_IMX415_PCIE_X1_test\IMX415_PCIE_X1\deploy\control_console\start_control_console.bat
+
+重启后必做
+cd /home/linaro/deploy
+chmod +x *.sh
+./pcie_setup.sh
+
+
+cd /home/linaro/deploy/rk3576
+bash build.sh
+
+
+开启tf
+cd /
+umount /mnt/tf
+
+mount -t vfat \
+  -o rw,uid="$(id -u linaro)",gid="$(id -g linaro)",umask=0022 \
+  /dev/mmcblk1p1 /mnt/tf
+
+findmnt /mnt/tf
+ls -ld /mnt/tf
+
+yolo播放（stats是独立显示，boxes是显示跟随yolo）
+原图
+cd /home/linaro/deploy
+VIDEO_CAPTURE=1 \
+YOLO_MODEL=/home/linaro/deploy/yolo/yolov5s_relu.rknn \
+YOLO_VIEW=stats YOLO_KMS_OVERLAY=1 YOLO_MAX_FPS=30 \
+bash play_raw_video.sh 0 188
+
+cd /home/linaro/deploy
+VIDEO_CAPTURE=1 \
+YOLO_MODEL=/home/linaro/deploy/yolo/yolov5s_relu.rknn \
+YOLO_VIEW=boxes YOLO_KMS_OVERLAY=1 YOLO_MAX_FPS=30 \
+bash play_raw_video.sh 0 188
+
+压缩
+
+cd /home/linaro/deploy
+VIDEO_CAPTURE=1 \
+YOLO_MODEL=/home/linaro/deploy/yolo/yolov5s_relu.rknn \
+YOLO_VIEW=stats YOLO_KMS_OVERLAY=1 YOLO_MAX_FPS=30 \
+bash play_lz77_video.sh 0 188
+
+
+挂载tf卡
+mountpoint -q /mnt/tf || mount /dev/mmcblk1p1 /mnt/tf
+
+播放时在同一个终端按 P 截图、R 开始录像、S 停止并保存录像。文件保存在/mnt/tfcapture
+
+
+| 参数 | 模式 |
+|---:|---|
+| 0 | 原图 |
+| 1 | 灰度 |
+| 2 | 高斯滤波 |
+| 3 | 直方图均衡 |
+| 4 | 高斯＋均衡 |
+| 5 | 灰度＋中值 |
+| 6 | 灰度＋Sobel |
+| 7 | 预留，不能使用 |
+8 低照度增强
+9去雾
+
+
+
+
+
+
+
+
+
+
+
+
+deploy文件夹需要加入rk3576以及D:\FPGA\AFC03_IMX415_PCIE_X1_test\IMX415_PCIE_X1\deploy_current_20261009\deploy同名替换即可
+
+cd /home/linaro/deploy
+sha256sum -c SHA256SUMS
+cd rk3576
+bash build.sh &&
+./rk3576_lz77_rx --version &&
+python3 test_rgb24_geometry.py --receiver ./rk3576_lz77_rx &&
+python3 test_video_output.py --receiver ./rk3576_lz77_rx
+
+
+验证版本驱动
+cd /home/linaro/deploy/rk3576
+bash build.sh && ./rk3576_lz77_rx --version &&
+python3 test_rgb24_geometry.py --receiver ./rk3576_lz77_rx &&
+python3 test_video_output.py --receiver ./rk3576_lz77_rx
+
+
+
+下载[新版开发包]解压并合并覆盖到板端 /home/linaro/deploy/，然后执行：
+cd /home/linaro/deploy/rk3576 &&
+bash build.sh &&
+python3 test_rgb24_geometry.py --receiver ./rk3576_lz77_rx &&
+python3 test_video_output.py --receiver ./rk3576_lz77_rx &&
+cd /home/linaro/deploy &&
+python3 test_yolo_reference.py
+全部通过后启动：
+cd /home/linaro/deploy
+YOLO_MODEL=/home/linaro/deploy/yolo/yolov5s_relu.rknn bash play_lz77_video.sh 1 188
+不要同时启动官方 YOLO 程序。无需重新烧录 FPGA。
+
+
+关闭 LZ77 后仍能显示实时 FPS，也能开启 YOLO。** 我已增加未压缩播放器，保留左上角小字体显示，标注 `COMP:OFF`。
+
+先下载[未压缩 FPS 更新包](D:/FPGA/AFC03_IMX415_PCIE_X1_test/IMX415_PCIE_X1/imx415_pcie_4k_Runs/raw_video_fps_update_20261009.zip)，解压后合并覆盖到 `/home/linaro/deploy/`。**无需重新烧录或编译接收程序。**
+
+先按 **Ctrl+C** 停止当前播放器，再执行
+`bash
+cd /home/linaro/deploy
+
+# 灰度，不开启 LZ77，显示实时 FPS
+YOLO_MODEL= bash play_raw_video.sh 1 188
+
+
+通过第一个参数切换模式：
+
+| 参数 | 模式 |
+|---:|---|
+| 0 | 原图 |
+| 1 | 灰度 |
+| 2 | 高斯滤波 |
+| 3 | 直方图均衡 |
+| 4 | 高斯＋均衡 |
+| 5 | 灰度＋中值 |
+| 6 | 灰度＋Sobel |
+| 7 | 预留，不能使用 |
+8 低照度增强
+9去雾
+例如停止后切到 Sobel：
+
+bash
+YOLO_MODEL= bash play_raw_video.sh 6 188
+
+
+不开 LZ77，但同时运行 YOLO：
+
+bash
+YOLO_MODEL=/home/linaro/rock/yolo/yolov5s_relu.rknn bash play_raw_video.sh 1 188
+
+YOLO_MODEL=/home/linaro/deploy/yolo/yolov5s_relu.rknn bash play_raw_video.sh 1 188
+
+恢复 LZ77 压缩播放，同样先停止，再执行：
+
+bash
+YOLO_MODEL= bash play_lz77_video.sh 1 188
+
+
+两种播放器会自动设置压缩开关。原控制脚本的参数仍是：
+
+bash
+#BAR0地址  预处理模式  压缩开关（0关闭，1开启）
+bash mode_control.sh 0x21200000 1 0
+```
+
+不要在播放器运行时切换压缩开关，也不要同时运行两个播放器。** 未压缩路径通过 [V4L2](https://gstreamer.freedesktop.org/documentation/video4linux2/v4l2src.html) 取图；本次已完成语法检查，实际显示及帧率需上板验证。
+
+
+用mp4播放，将视频换成自己的
+mkdir -p /home/linaro/fpga-results
+
+python3 process_mp4_fpga.py /home/linaro/videos/input.mp4 \
+  --mode 0 --frames 30 \
+  --output /home/linaro/fpga-results/bypass30.mp4
+
+python3 process_mp4_fpga.py /home/linaro/videos/input.mp4 \
+  --mode 8 \
+  --output /home/linaro/fpga-results/lowlight.mp4
+
+
+busybox devmem 0x21200090 32 0
+busybox devmem 0x212000a4 32 0
+busybox devmem 0x212000a8 32 0
+busybox devmem 0x21200060 32 1
+
+(设置原画，无算法无压缩)
+
+v4l2-ctl -d /dev/video73 \
+  --set-fmt-video=width=1920,height=1080,pixelformat=RGB3
+
+gst-launch-1.0 \
+  v4l2src device=/dev/video73 io-mode=dmabuf ! \
+  'video/x-raw,width=1920,height=1080,format=RGB' ! \
+  videoconvert ! \
+  kmssink connector-id=188 sync=false
+（HDMI）_
+
+播放lz77：
+
+cd /home/linaro/deploy/rk3576 &&
+python3 test_video_output.py --receiver ./rk3576_lz77_rx &&
+cd /home/linaro/deploy &&
+bash play_lz77_video.sh 1 188
+
+
+
+
+原画
+./mode_control.sh 0x21200000 0 0
+
+# F1 灰度
+./mode_control.sh 0x21200000 1 0
+
+# F2 灰度+高斯
+./mode_control.sh 0x21200000 2 0
+
+# F3 灰度+均衡
+./mode_control.sh 0x21200000 3 0
+
+# F4 灰度+高斯+均衡
+./mode_control.sh 0x21200000 4 0
+灰度+中值
+./mode_control.sh 0x21200000 5 0
+灰度+Sobel
+./mode_control.sh 0x21200000 6 0
+
+
+
+卸载驱动
+rmmod milianke_v4l2 2>/dev/null || true
+rmmod anlogic_pci 2>/dev/null || true
+
+insmod /home/linaro/deploy/sgdma_drv/anlogic_pci.ko \
+  poll_mode=1 enable_st_c2h_credit=1 desc_blen_max=1048576
+
+
+insmod /home/linaro/deploy/v4l2_drv/milianke_v4l2.ko
+sleep 1
+ls -l /dev/video*
+v4l2-ctl --list-devices
+
+cd /home/linaro/deploy
+rmmod milianke_v4l2 2>/dev/null || true
+rmmod anlogic_pci 2>/dev/null || true
+sleep 2
+./pcie_setup.sh
+./mode_control.sh 0x21200000 4 1
+
+使用 XFTP 将整个 rk3576 文件夹复制到 RK3576：
+/home/linaro/deploy/rk3576
+复制后，在 RK3576 执行：
+cd /home/linaro/deploy/rk3576
+ls -l
+chmod +x *.sh
+bash build.sh
+
+
+cd /home/linaro/deploy/rk3576
+
+timeout 60 ./rk3576_lz77_rx \
+  -d /dev/ANLOGIC-PCI0_c2h_0 \
+  -o /userdata/lz77/frame \
+  -n 1 \
+  -v
+
+
+
+
+完整清理
+cd /home/linaro/deploy
+
+pkill -f rk3576_lz77_rx 2>/dev/null || true
+pkill -f gst-launch-1.0 2>/dev/null || true
+pkill -f 'dd.*ANLOGIC-PCI0_c2h_0' 2>/dev/null || true
+
+rmmod milianke_v4l2 2>/dev/null || true
+rmmod anlogic_pci 2>/dev/null || true
+sleep 2
+
+./pcie_setup.sh
+busybox devmem 0x21200060 32 0
+busybox devmem 0x21200090 32 0
+busybox devmem 0x212000a4 32 4
+busybox devmem 0x212000a8 32 0
+busybox devmem 0x21200060 32 1
+sleep 2
+busybox devmem 0x21200088 32
+sleep 2
+busybox devmem 0x21200088 32
+cd /home/linaro/deploy/rk3576
+./rk3576_lz77_rx --version
+bash build.sh
+rm -f /tmp/lz77_rx.log /tmp/lz77_frame_capture.bin
+
+timeout 30 ./rk3576_lz77_rx \
+  -d /dev/ANLOGIC-PCI0_c2h_0 \
+  -o /userdata/lz77/frame \
+  --capture /tmp/lz77_frame_capture.bin \
+  -n 1 \
+  -v > /tmp/lz77_rx.log 2>&1 &
+
+RX_PID=$!
+sleep 1
+
+busybox devmem 0x212000a8 32 1
+busybox devmem 0x21200060 32 1
+
+wait "$RX_PID"
+cat /tmp/lz77_rx.log
+
+
+
+
+
+
+
+
+单帧测试前重置
+(
+pkill -f rk3576_lz77_rx 2>/dev/null || true
+fuser -k /dev/ANLOGIC-PCI0_c2h_0 2>/dev/null || true
+
+busybox devmem 0x21200060 32 0
+busybox devmem 0x21200060 32 2
+sleep 1
+
+busybox devmem 0x212000a4 32 4
+busybox devmem 0x212000a8 32 1
+
+)
+
+
+
+获取tmp权限
+
+ls -ld /tmp/mp4-fpga.94bpjq1m
+
+ls -la /tmp/mp4-fpga.94bpjq1m
+
+chown -R linaro:linaro /tmp/mp4-fpga.94bpjq1m
+
+ls -ld /home/linaro/lz77-isolate.fbLS66
+
+ls -la /home/linaro/lz77-isolate.fbLS66L
+
+chown -R linaro:linaro /home/linaro/lz77-isolate.fbLS66
+
+ls -ld /dev/mmcblk1p1
+
+ls -la /dev/mmcblk1p1
+
+chown -R linaro: /dev/mmcblk1p1
+
+获取MP4权限
+ls -l /home/linaro/fpga-results/*.mp4
+chown linaro:linaro /home/linaro/fpga-results/*.mp4
+chmod 644 /home/linaro/fpga-results/*.mp4
+
+/*
+重新编译：
+cd /home/linaro/deploy/rk3576
+rm -f rk3576_lz77_rx
+bash build.sh
+*/

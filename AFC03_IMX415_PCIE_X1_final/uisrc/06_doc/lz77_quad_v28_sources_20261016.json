@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-16",
+  "candidate_version": "0x56440028",
+  "project": "original imx415_pcie_4k.al",
+  "four_byte_active_path": true,
+  "ddr_slot_count": 4,
+  "ddr_slot_stride_bytes": 8388608,
+  "payload_protocol_changed": false,
+  "user_read_size": 4096,
+  "synthesis_run": false,
+  "implementation_run": false,
+  "bitgen_run": false,
+  "board_tested": false,
+  "measured_model_throughput": {
+    "raw_bytes": 82944,
+    "cycles": 20743,
+    "description": "no-sink-backpressure RTL simulation including packetization/footer; not board FPS"
+  },
+  "known_limits": [
+    "CPU receiver remains serial",
+    "4KiB synchronous DMA remains",
+    "distance=1 compression may expand payload",
+    "finite slots cannot remove sustained source/consumer rate mismatch",
+    "old independent mode3 runtime preprocessing mismatch remains",
+    "YOLO heap abort not fixed"
+  ],
+  "sha256": {
+    "uisrc/01_rtl/lz77_rgb_c2h_path.v": "be6b76beff128f527279977d289a43f444c196973e86a69fa57c6233c22e2aa3",
+    "uisrc/01_rtl/ddr_frame_store_axi.v": "0f88cb6ec8f81d7f809b1ec8e46c42665456675d25141febaf9ea624b36f3df4",
+    "uisrc/01_rtl/ddr_camera_frame_path.v": "5a1f0f257497ddfd415e617eef58443ee6436175fb94495b0c8c002702fa49a8",
+    "uisrc/01_rtl/pcie_ddr_camera.v": "8c599d2bbf13fdfdf3758feed7f982ee6ab7a501a18bd496075300039a2fecd9",
+    "uisrc/01_rtl/param_imx415.v": "6e08ed1a27ddea6a4e3748ac58ea63cba8ee4c9ed6d35f6a1a0457b1df200b2d",
+    "uisrc/01_rtl/imx415_pcie_top.v": "f07aa011d8d3e0a3e98da3c516a873a3fdb48a7417690fde6da4c7153dc6f16c",
+    "imx415_pcie_4k.al": "94d12bfc9ae47469d065ab23a5bbff95d3b42a537772c7eea68349c1d10761e9",
+    "uisrc/02_sim/c2h_regression/tb_quad_throughput.sv": "30b60c8fb45bc05c9cca40bcb0a05ba943048efb8191e214221b91da8bc852f5",
+    "uisrc/02_sim/c2h_regression/tb_quad_runs.sv": "f168f6d80f6d5570baf3c2ba84bd50a03201d8b4696d03cf1f85a50275309b8f",
+    "uisrc/02_sim/c2h_regression/check_quad_crc.py": "f7743809fb570b5b0bf75183ac123ea4698ad2a3aba1f0a7bea674a7e2855561",
+    "uisrc/02_sim/c2h_regression/check_quad_throughput.py": "58134d803ccf7dc38069800512c174052c4df50f2674d73b0f30e8bbe40b4b97",
+    "uisrc/02_sim/c2h_regression/tb_ddr_frame_path.sv": "874ef09ab2e99df1c8569f791108647e276dba4d1a73dd0a3a74649f85af7792",
+    "uisrc/02_sim/c2h_regression/tb_ddr_lz77.sv": "c544c3261707e20ae3a49292a4173ab725f79ce21e45f425bb7a2248a0a06969"
+  }
+}

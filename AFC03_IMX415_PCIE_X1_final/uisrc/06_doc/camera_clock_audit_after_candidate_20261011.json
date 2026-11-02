@@ -1,0 +1,53 @@
+{
+  "kind": "source audit; not board clock measurement",
+  "pll_c0_mhz": 150.0,
+  "pll_vco_mhz": 1350.0,
+  "pll_c2_mhz": 54.0,
+  "mclk_after_toggle_mhz": 27.0,
+  "mode0_matches_27mhz_891mbps_profile": true,
+  "hmax": 542,
+  "vmax": 2283,
+  "mode0_selected_registers": {
+    "0x3008": "0x5d",
+    "0x300a": "0x42",
+    "0x300b": "0xa0",
+    "0x3031": "0x00",
+    "0x3032": "0x00",
+    "0x3033": "0x05",
+    "0x3115": "0x00",
+    "0x3116": "0x23",
+    "0x3118": "0xc6",
+    "0x3119": "0x00",
+    "0x311a": "0xe7",
+    "0x311b": "0x00",
+    "0x311e": "0x23",
+    "0x4004": "0xc0",
+    "0x4005": "0x06",
+    "0x400c": "0x00",
+    "0x4074": "0x01"
+  },
+  "sources": {
+    "uisrc/01_rtl/imx415_pcie_top.v": {
+      "sha256": "3ebb4f07f3531e1e2ed83b48c4deb7128dc02f2b5095ff87ff7fcab95ee21ee1",
+      "matches_v26": false
+    },
+    "uisrc/03_ip/ui_imx415_cfg/ui_imx415_reg.v": {
+      "sha256": "4a058e988125a68a129fd00645fd641dd991443ded1d2a840090ec2bdc028af3",
+      "matches_v26": true
+    },
+    "al_ip/ui_pll.v": {
+      "sha256": "d3ae6c7c9f97285867c47bc34d6050835a5cc3f594a50e6640ec23caec8976fc",
+      "matches_v26": null
+    },
+    "al_ip/ui_pll.ipc": {
+      "sha256": "16b0a8c3250b4d2b5a9bc53266cc942a3ed26ac28ad36f068bfc43821e931669",
+      "matches_v26": null
+    }
+  },
+  "profile_inck_mhz": 27,
+  "clock_mismatch": false,
+  "nominal_frame_timing_fps": 60.00552778195325,
+  "inferred_scaled_fps": 60.00552778195325,
+  "inferred_lane_mbps": 891.0,
+  "inferred_mipi_clock_mhz": 445.5
+}

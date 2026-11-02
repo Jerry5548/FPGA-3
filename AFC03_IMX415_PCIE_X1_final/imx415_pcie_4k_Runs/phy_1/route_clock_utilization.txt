@@ -1,0 +1,778 @@
+Copyright (c) 2012-2026 Anlogic Inc., All Rights Reserved.
+----------------------------------------------------------------------------
+| Tool Version : Tang Dynasty Release_2026.1_SP2 Jun  4 2026 11:35:08       
+| Date         : Wed Oct 21 18:44:15 2026                                   
+| Command      : report_clock_utilization -file route_clock_utilization.txt 
+| Design       : imx415_pcie_top                                            
+| Device       : ph1_90-PH1A90SEG324                                        
+| Speed        : 2                                                          
+----------------------------------------------------------------------------
+
+Table of Contents
+-----------------
+A. Clock Utilization Report.
+B. Clock Buffer Info.
+C. IP Stat.
+
+
+------------------------------------------------------------------------------------------------------------
+----------------------------------------A. Clock Utilization Report.----------------------------------------
+------------------------------------------------------------------------------------------------------------
+
+1. Clock Buffer Utilization
++------------------+------+-----------+
+| Type             | Used | Available |
++------------------+------+-----------+
+| PH1_PHY_GCLK_V2  |   15 |        32 |
+| PH1_PHY_HP_IOCLK |    2 |         8 |
+| PH1_PHY_HP_MLCLK |    2 |         8 |
+| PH1_PHY_IOCLK    |    0 |        10 |
+| PH1_PHY_LCLK_V2  |    2 |        36 |
+| PH1_PHY_MLCLK_V2 |    0 |         8 |
+| PH1_PHY_SCLK_V2  |   45 |        96 |
++------------------+------+-----------+
+
+
+2. Global Clock Resource Stat.
++------------+------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------+-----------+-------------------+-------------+-------------+--------------+------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+| Global Idx | Source Idx | Global Type     | Inst.Pin                                                                                                                                              | Constraint | site | Location  | Load Clock Region | Clock Loads | Total Loads | Clock Period | Clock                                                                                    | Net                                                                                                                  |
++------------+------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------+-----------+-------------------+-------------+-------------+--------------+------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+| gclk_0     | src_0      | PH1_PHY_GCLK_V2 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback.clkout | None       | T    | x37y99z16 |                 8 |       20701 |       20701 |        8.000 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/pcie_user_clk | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb                                           |
+| gclk_1     | src_1      | PH1_PHY_GCLK_V2 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg.clkout                                                                         | None       | B    | x37y99z1  |                 5 |        4864 |        4864 |        7.500 | u_pcie_ddr/u_ddr/dfi_clk                                                                 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/bkIdx[1]$bk_used$u_ddrbank_top/t3_usr_clk          |
+| gclk_2     | src_2      | PH1_PHY_GCLK_V2 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_created_gclkinst.clkout                                                                     | None       | B    | x37y99z2  |                 2 |         741 |         741 |       20.000 | u_pcie_ddr/u_ddr/mcu_clk                                                                 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_syn_1                                                      |
+| gclk_3     | src_3      | PH1_PHY_GCLK_V2 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst.clkout                                                                | None       | T    | x37y99z20 |                 3 |         560 |         561 |        8.976 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout      | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_syn_4                                                 |
+| gclk_4     | src_4      | PH1_PHY_GCLK_V2 | cwc_jtck_created_gclkinst.clkout                                                                                                                      | None       | B    | x37y99z5  |                 2 |         186 |         186 |      100.000 | config_inst.cwc_tck_o                                                                    | cwc_jtck_syn_1                                                                                                       |
+| gclk_5     | src_5      | PH1_PHY_GCLK_V2 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst.clkout                | None       | B    | x37y99z3  |                 5 |         157 |         157 |       40.000 | u_sgdma_pll/pll_inst.clkc[1]                                                             | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_syn_1 |
+| gclk_6     | src_6      | PH1_PHY_GCLK_V2 | u_cam_i2c_cfg/I_clk_created_gclkinst.clkout                                                                                                           | None       | T    | x37y99z17 |                 2 |          97 |          97 |       18.519 | u_ui_pll/pll_inst.clkc[2]                                                                | u_cam_i2c_cfg/I_clk_syn_1                                                                                            |
+| gclk_7     | src_7      | PH1_PHY_GCLK_V2 | u_sgdma_pll/bufg_feedback.clkout                                                                                                                      | None       | B    | x37y99z4  |                 2 |          24 |          24 |        8.000 | u_sgdma_pll/pll_inst.clkc[0]                                                             | core_clk                                                                                                             |
+| gclk_8     | src_8      | PH1_PHY_GCLK_V2 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_pcie_bufg.clkout              | None       | T    | x37y99z18 |                 1 |          21 |          21 |        8.000 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/core_clk      | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/core_clk_bufg |
+| gclk_9     | src_9      | PH1_PHY_GCLK_V2 | u_cam_i2c_cfg/X_ui_i2c/scl_clk_created_gclkinst.clkout                                                                                                | None       | B    | x37y99z8  |                 2 |          17 |          17 |              |                                                                                          | u_cam_i2c_cfg/X_ui_i2c/scl_clk_syn_10                                                                                |
+| gclk_10    | src_10     | PH1_PHY_GCLK_V2 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_created_gclkinst.clkout                                                                     | None       | T    | x37y99z21 |                 2 |          12 |          12 |        4.488 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkdivout      | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_syn_1                                                      |
+| gclk_11    | src_11     | PH1_PHY_GCLK_V2 | u_ui_pll/bufg_feedback.clkout                                                                                                                         | None       | T    | x37y99z19 |                 2 |          10 |          10 |        6.666 | u_ui_pll/pll_inst.clkc[0]                                                                | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_csi_rx_clock_det/I_ref_clock                                         |
+| gclk_12    | src_12     | PH1_PHY_GCLK_V2 | u_mipi_ref_clk_bufg.clkout                                                                                                                            | None       | B    | x37y99z7  |                 2 |          10 |          10 |       10.000 | board_ref_100m                                                                           | u_pcie_ddr/ref_clk                                                                                                   |
+| gclk_13    | src_13     | PH1_PHY_GCLK_V2 | u_sys_clk_bufg.clkout                                                                                                                                 | None       | B    | x37y99z6  |                 2 |           9 |           9 |       40.000 | sys_clk                                                                                  | sys_clk_g                                                                                                            |
+| gclk_14    | src_14     | PH1_PHY_GCLK_V2 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/bufg_feedback.clkout                                                            | None       | B    | x37y99z0  |                 2 |           2 |           2 |        7.500 | u_pcie_ddr/u_ddr/dfi_clk                                                                 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/clk0_out                                       |
++------------+------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------+-----------+-------------------+-------------+-------------+--------------+------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+
+
+3. Global Clock Source Stat.
++------------+------------+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+------------+------+-----------+-------------+-----------------+---------------------+------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| Source Idx | Global Idx | Source Type       | Inst.Pin                                                                                                                                          | Constraint | Site | Location  | Clock Loads | Non Clock Loads | Source Clock Period | Source Clock                                                                             | Net                                                                                                                                       |
++------------+------------+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+------------+------+-----------+-------------+-----------------+---------------------+------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| src_0      | gclk_0     | PH1_PHY_PLL       | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/pll_inst.clkc[0] | X0Y120Z0   | N/A  | x0y120z0  |           1 |               0 |               8.000 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/pcie_user_clk | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/clk0_buf |
+| src_1      | gclk_1     | PH1_PHY_GCLK_V2   | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/bufg_feedback.clkout                                                        | None       | B    | x37y99z0  |           2 |               0 |               7.500 | u_pcie_ddr/u_ddr/dfi_clk                                                                 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/clk0_out                                                            |
+| src_2      | gclk_2     | PH1_PHY_PLL       | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll0/pll_inst.clkc[3]                                                            | X81Y79Z0   | N/A  | x81y79z0  |           1 |               0 |              20.000 | u_pcie_ddr/u_ddr/mcu_clk                                                                 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk                                                                                 |
+| src_3      | gclk_3     | PH1_PHY_LCLK_V2   | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout                                                               | None       | S2 L | x0y99z1   |           1 |               0 |               8.976 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout      | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock                                                                            |
+| src_4      | gclk_4     | PH1_PHY_CONFIG_V2 | config_inst.cwc_tck_o                                                                                                                             | None       | N/A  | x5y79z0   |           1 |               0 |             100.000 | config_inst.cwc_tck_o                                                                    | cwc_jtck                                                                                                                                  |
+| src_5      | gclk_5     | PH1_PHY_PLL       | u_sgdma_pll/pll_inst.clkc[1]                                                                                                                      | None       | N/A  | x81y39z0  |           1 |               0 |              40.000 | u_sgdma_pll/pll_inst.clkc[1]                                                             | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk                            |
+| src_6      | gclk_6     | PH1_PHY_PLL       | u_ui_pll/pll_inst.clkc[2]                                                                                                                         | None       | N/A  | x0y119z0  |           1 |               0 |              18.519 | u_ui_pll/pll_inst.clkc[2]                                                                | u_cam_i2c_cfg/I_clk                                                                                                                       |
+| src_7      | gclk_7     | PH1_PHY_PLL       | u_sgdma_pll/pll_inst.clkc[0]                                                                                                                      | None       | N/A  | x81y39z0  |           1 |               0 |               8.000 | u_sgdma_pll/pll_inst.clkc[0]                                                             | u_sgdma_pll/clk0_buf                                                                                                                      |
+| src_8      | gclk_8     | PH1_PHY_PCIE_V3   | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/uep_PH1_PHY_PCIE.core_clk                                              | None       | N/A  | x51y120z0 |           2 |               0 |               8.000 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/core_clk      | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/core_clk                           |
+| src_9      | gclk_9     | PH1_PHY_LSLICE    | u_cam_i2c_cfg/X_ui_i2c/scl_clk_reg_syn_9.oqa                                                                                                      | None       | N/A  | x1y81z7   |           1 |               0 |                     |                                                                                          | u_cam_i2c_cfg/X_ui_i2c/scl_clk                                                                                                            |
+| src_10     | gclk_10    | PH1_PHY_LCLK_V2   | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkdivout                                                               | None       | S2 L | x0y99z0   |           1 |               0 |               4.488 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkdivout      | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2                                                                                 |
+| src_11     | gclk_11    | PH1_PHY_PLL       | u_ui_pll/pll_inst.clkc[0]                                                                                                                         | None       | N/A  | x0y119z0  |           1 |               0 |               6.666 | u_ui_pll/pll_inst.clkc[0]                                                                | u_ui_pll/clk0_buf                                                                                                                         |
+| src_12     | gclk_12    | PH1_PHY_PAD       | mipi_ref_clk_p_syn_2.di                                                                                                                           | None       | N/A  | x0y57z0   |           1 |               0 |              10.000 | board_ref_100m                                                                           | mipi_ref_clk_p_dup_1                                                                                                                      |
+| src_13     | gclk_13    | PH1_PHY_PAD       | sys_clk_syn_2.di                                                                                                                                  | None       | N/A  | x0y57z2   |           1 |               0 |              40.000 | sys_clk                                                                                  | sys_clk_dup_1                                                                                                                             |
+| src_14     | gclk_14    | PH1_PHY_PLL       | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/pll_inst.clkc[0]                                                            | X81Y40Z0   | N/A  | x81y40z0  |           1 |               0 |               7.500 | u_pcie_ddr/u_ddr/dfi_clk                                                                 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/clk0_buf                                                            |
++------------+------------+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+------------+------+-----------+-------------+-----------------+---------------------+------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+4. Local Clock Resource Stat.
++-----------+-------------------+--------------------------------------------------------------------------------------------------------------------+------------+------+----------+-------------+-------------+--------------+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| Local Idx | Type              | Inst.Pin                                                                                                           | Constraint | site | Location | Clock Loads | Total Loads | Clock Period | Clock                                                                               | Net                                                                                                                     |
++-----------+-------------------+--------------------------------------------------------------------------------------------------------------------+------------+------+----------+-------------+-------------+--------------+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| local_17  | PH1_PHY_SCLK_V2   | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst_auto_created_sclk_s_0_l_bk2.clkout | None       | S0 L | x37y19z1 |         185 |         186 |        8.976 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst_auto_created_sclk_s_0_l_bk2_sclk_outnet |
+| local_48  | PH1_PHY_LSLICE    | u_cam_i2c_cfg/X_ui_i2c/scl_clk_reg_syn_9.oqa                                                                       | None       | N/A  | x1y81z7  |           1 |           1 |              |                                                                                     | u_cam_i2c_cfg/X_ui_i2c/scl_clk                                                                                          |
+| local_51  | PH1_PHY_CONFIG_V2 | config_inst.cwc_tck_o                                                                                              | None       | N/A  | x5y79z0  |           1 |           1 |      100.000 | config_inst.cwc_tck_o                                                               | cwc_jtck                                                                                                                |
++-----------+-------------------+--------------------------------------------------------------------------------------------------------------------+------------+------+----------+-------------+-------------+--------------+-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+
+
+5. Clock Region Resource Stat.
++-------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+|                   |   Global Clock   | PH1_PHY_SCLK_V2  | PH1_PHY_LCLK_V2  | PH1_PHY_MLCLK_V2 | PH1_PHY_HP_MLCLK |  PH1_PHY_IOCLK   | PH1_PHY_HP_IOCLK |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+| Clock Region Name | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+| X0Y0              |      3 |      12 |      3 |      12 |      0 |       8 |      0 |       2 |      0 |       0 |      0 |       4 |      0 |       0 |
+| X1Y0              |      5 |      12 |      5 |      12 |      0 |       4 |      0 |       0 |      0 |       4 |      0 |       0 |      0 |       4 |
+| X0Y1              |      7 |      12 |      7 |      12 |      0 |       4 |      0 |       2 |      0 |       0 |      0 |       2 |      0 |       0 |
+| X1Y1              |      8 |      12 |      8 |      12 |      0 |       4 |      0 |       0 |      2 |       4 |      0 |       0 |      2 |       4 |
+| X0Y2              |     10 |      12 |     10 |      12 |      2 |       4 |      0 |       2 |      0 |       0 |      0 |       2 |      0 |       0 |
+| X1Y2              |      2 |      12 |      2 |      12 |      0 |       4 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |
+| X0Y3              |      5 |      12 |      7 |      12 |      0 |       4 |      0 |       2 |      0 |       0 |      0 |       2 |      0 |       0 |
+| X1Y3              |      2 |      12 |      3 |      12 |      0 |       4 |      0 |       0 |      0 |       0 |      0 |       0 |      0 |       0 |
++-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
+
+
+6. Track Utilization.
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 |  5 |  2 |
+| Y2 | 10 |  2 |
+| Y1 |  7 |  8 |
+| Y0 |  3 |  5 |
++----+----+----+
+
+
+7. Global Clock gclk_0 Stat.
++------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+------------------------------------------------------------------------------------------+-------------+---------------+----------+----------------------------------------------------------------------------+-----------------------+---------------------+--------------------------+-------------------+---------------------+----------------------------+----------------+
+| Global Idx | Type            | Driver.Pin                                                                                                                                            | Driver Region (D) | Clock                                                                                    | Period (ns) | Waveform (ns) | Root (R) | Net                                                                        | FanoutGroup1          | FanoutGroup2        | FanoutGroup3             | FanoutGroup4      | FanoutGroup5        | FanoutGroup6               | FanoutGroup7   |
++------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+------------------------------------------------------------------------------------------+-------------+---------------+----------+----------------------------------------------------------------------------+-----------------------+---------------------+--------------------------+-------------------+---------------------+----------------------------+----------------+
+| gclk_0     | PH1_PHY_GCLK_V2 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback.clkout | T                 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/pcie_user_clk |       8.000 | {0.000 2.000} | N/A      | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb | PH1_PHY_LSLICE(19209) | PH1_PHY_MSLICE(554) | PH1_PHY_DRAMHARDCON(458) | PH1_PHY_ERAM(394) | PH1_PHY_DSPSIOU(72) | PH1_PHY_SHIFTERHARDCON(13) | PH1_PHY_PLL(1) |
++------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+------------------------------------------------------------------------------------------+-------------+---------------+----------+----------------------------------------------------------------------------+-----------------------+---------------------+--------------------------+-------------------+---------------------+----------------------------+----------------+
++----+------+------+
+|    | X0   | X1   |
++----+------+------+
+| Y3 | 4477 | 2200 |
+| Y2 | 4610 | 2593 |
+| Y1 |  972 |  993 |
+| Y0 | 1134 | 3722 |
++----+------+------+
+
+
+8. Global Clock gclk_1 Stat.
++------------+-----------------+-------------------------------------------------------------------------------+-------------------+--------------------------+-------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+----------------------+---------------------+------------------+-------------------------+---------------------+---------------------+
+| Global Idx | Type            | Driver.Pin                                                                    | Driver Region (D) | Clock                    | Period (ns) | Waveform (ns) | Root (R) | Net                                                                                                         | FanoutGroup1         | FanoutGroup2        | FanoutGroup3     | FanoutGroup4            | FanoutGroup5        | FanoutGroup6        |
++------------+-----------------+-------------------------------------------------------------------------------+-------------------+--------------------------+-------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+----------------------+---------------------+------------------+-------------------------+---------------------+---------------------+
+| gclk_1     | PH1_PHY_GCLK_V2 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg.clkout | B                 | u_pcie_ddr/u_ddr/dfi_clk |       7.500 | {0.229 3.979} | N/A      | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/bkIdx[1]$bk_used$u_ddrbank_top/t3_usr_clk | PH1_PHY_LSLICE(4621) | PH1_PHY_MSLICE(132) | PH1_PHY_ERAM(66) | PH1_PHY_DRAMHARDCON(39) | PH1_PHY_DDR_BANK(5) | PH1_PHY_DDR4_CAL(1) |
++------------+-----------------+-------------------------------------------------------------------------------+-------------------+--------------------------+-------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+----------------------+---------------------+------------------+-------------------------+---------------------+---------------------+
++----+-----+------+
+|    | X0  | X1   |
++----+-----+------+
+| Y3 |   0 |    0 |
+| Y2 | 159 |  698 |
+| Y1 | 269 | 3519 |
+| Y0 |   0 |  219 |
++----+-----+------+
+
+
+9. Global Clock gclk_2 Stat.
++------------+-----------------+-----------------------------------------------------------------------------------+-------------------+--------------------------+-------------+----------------+----------+-----------------------------------------------------------------+---------------------+--------------------+-------------------------+------------------+---------------------+---------------------+
+| Global Idx | Type            | Driver.Pin                                                                        | Driver Region (D) | Clock                    | Period (ns) | Waveform (ns)  | Root (R) | Net                                                             | FanoutGroup1        | FanoutGroup2       | FanoutGroup3            | FanoutGroup4     | FanoutGroup5        | FanoutGroup6        |
++------------+-----------------+-----------------------------------------------------------------------------------+-------------------+--------------------------+-------------+----------------+----------+-----------------------------------------------------------------+---------------------+--------------------+-------------------------+------------------+---------------------+---------------------+
+| gclk_2     | PH1_PHY_GCLK_V2 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_created_gclkinst.clkout | B                 | u_pcie_ddr/u_ddr/mcu_clk |      20.000 | {0.000 10.000} | N/A      | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_syn_1 | PH1_PHY_LSLICE(676) | PH1_PHY_MSLICE(23) | PH1_PHY_DRAMHARDCON(20) | PH1_PHY_ERAM(16) | PH1_PHY_DDR_BANK(5) | PH1_PHY_DDR4_CAL(1) |
++------------+-----------------+-----------------------------------------------------------------------------------+-------------------+--------------------------+-------------+----------------+----------+-----------------------------------------------------------------+---------------------+--------------------+-------------------------+------------------+---------------------+---------------------+
++----+----+-----+
+|    | X0 | X1  |
++----+----+-----+
+| Y3 |  0 |   0 |
+| Y2 |  0 |   0 |
+| Y1 |  0 | 339 |
+| Y0 |  0 | 402 |
++----+----+-----+
+
+
+10. Global Clock gclk_3 Stat.
++------------+-----------------+----------------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------+-------------+---------------+----------+----------------------------------------------------------------------+---------------------+------------------+
+| Global Idx | Type            | Driver.Pin                                                                             | Driver Region (D) | Clock                                                                               | Period (ns) | Waveform (ns) | Root (R) | Net                                                                  | FanoutGroup1        | FanoutGroup2     |
++------------+-----------------+----------------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------+-------------+---------------+----------+----------------------------------------------------------------------+---------------------+------------------+
+| gclk_3     | PH1_PHY_GCLK_V2 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst.clkout | T                 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1.clkdivout |       8.976 | {0.000 4.488} | N/A      | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_syn_4 | PH1_PHY_LSLICE(544) | PH1_PHY_ERAM(17) |
++------------+-----------------+----------------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------+-------------+---------------+----------+----------------------------------------------------------------------+---------------------+------------------+
++----+-----+----+
+|    | X0  | X1 |
++----+-----+----+
+| Y3 |   0 |  0 |
+| Y2 |   2 |  0 |
+| Y1 | 373 |  0 |
+| Y0 | 186 |  0 |
++----+-----+----+
+
+
+11. Global Clock gclk_4 Stat.
++------------+-----------------+----------------------------------+-------------------+-----------------------+-------------+----------------+----------+----------------+---------------------+
+| Global Idx | Type            | Driver.Pin                       | Driver Region (D) | Clock                 | Period (ns) | Waveform (ns)  | Root (R) | Net            | FanoutGroup1        |
++------------+-----------------+----------------------------------+-------------------+-----------------------+-------------+----------------+----------+----------------+---------------------+
+| gclk_4     | PH1_PHY_GCLK_V2 | cwc_jtck_created_gclkinst.clkout | B                 | config_inst.cwc_tck_o |     100.000 | {0.000 50.000} | N/A      | cwc_jtck_syn_1 | PH1_PHY_LSLICE(186) |
++------------+-----------------+----------------------------------+-------------------+-----------------------+-------------+----------------+----------+----------------+---------------------+
++----+-----+----+
+|    | X0  | X1 |
++----+-----+----+
+| Y3 |  42 |  0 |
+| Y2 | 144 |  0 |
+| Y1 |   0 |  0 |
+| Y0 |   0 |  0 |
++----+-----+----+
+
+
+12. Global Clock gclk_5 Stat.
++------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------+-------------------+------------------------------+-------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+---------------------+--------------------+----------------+
+| Global Idx | Type            | Driver.Pin                                                                                                                             | Driver Region (D) | Clock                        | Period (ns) | Waveform (ns)  | Root (R) | Net                                                                                                                  | FanoutGroup1        | FanoutGroup2       | FanoutGroup3   |
++------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------+-------------------+------------------------------+-------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+---------------------+--------------------+----------------+
+| gclk_5     | PH1_PHY_GCLK_V2 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst.clkout | B                 | u_sgdma_pll/pll_inst.clkc[1] |      40.000 | {0.000 20.000} | N/A      | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_syn_1 | PH1_PHY_LSLICE(154) | PH1_PHY_PCIE_V3(2) | PH1_PHY_PLL(1) |
++------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------+-------------------+------------------------------+-------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+---------------------+--------------------+----------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 | 76 |  8 |
+| Y2 | 23 |  0 |
+| Y1 | 37 | 13 |
+| Y0 |  0 |  0 |
++----+----+----+
+
+
+13. Global Clock gclk_6 Stat.
++------------+-----------------+---------------------------------------------+-------------------+---------------------------+-------------+---------------+----------+---------------------------+--------------------+
+| Global Idx | Type            | Driver.Pin                                  | Driver Region (D) | Clock                     | Period (ns) | Waveform (ns) | Root (R) | Net                       | FanoutGroup1       |
++------------+-----------------+---------------------------------------------+-------------------+---------------------------+-------------+---------------+----------+---------------------------+--------------------+
+| gclk_6     | PH1_PHY_GCLK_V2 | u_cam_i2c_cfg/I_clk_created_gclkinst.clkout | T                 | u_ui_pll/pll_inst.clkc[2] |      18.519 | {0.000 9.259} | N/A      | u_cam_i2c_cfg/I_clk_syn_1 | PH1_PHY_LSLICE(97) |
++------------+-----------------+---------------------------------------------+-------------------+---------------------------+-------------+---------------+----------+---------------------------+--------------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 |  0 |  0 |
+| Y2 | 74 |  0 |
+| Y1 | 23 |  0 |
+| Y0 |  0 |  0 |
++----+----+----+
+
+
+14. Global Clock gclk_7 Stat.
++------------+-----------------+----------------------------------+-------------------+------------------------------+-------------+---------------+----------+----------+--------------------+----------------+
+| Global Idx | Type            | Driver.Pin                       | Driver Region (D) | Clock                        | Period (ns) | Waveform (ns) | Root (R) | Net      | FanoutGroup1       | FanoutGroup2   |
++------------+-----------------+----------------------------------+-------------------+------------------------------+-------------+---------------+----------+----------+--------------------+----------------+
+| gclk_7     | PH1_PHY_GCLK_V2 | u_sgdma_pll/bufg_feedback.clkout | B                 | u_sgdma_pll/pll_inst.clkc[0] |       8.000 | {0.000 4.000} | N/A      | core_clk | PH1_PHY_LSLICE(23) | PH1_PHY_PLL(1) |
++------------+-----------------+----------------------------------+-------------------+------------------------------+-------------+---------------+----------+----------+--------------------+----------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 |  0 |  0 |
+| Y2 |  0 |  0 |
+| Y1 |  0 | 23 |
+| Y0 |  0 |  1 |
++----+----+----+
+
+
+15. Global Clock gclk_8 Stat.
++------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------+-------------+---------------+----------+----------------------------------------------------------------------------------------------------------------------+--------------------+
+| Global Idx | Type            | Driver.Pin                                                                                                                               | Driver Region (D) | Clock                                                                               | Period (ns) | Waveform (ns) | Root (R) | Net                                                                                                                  | FanoutGroup1       |
++------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------+-------------+---------------+----------+----------------------------------------------------------------------------------------------------------------------+--------------------+
+| gclk_8     | PH1_PHY_GCLK_V2 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_pcie_bufg.clkout | T                 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/core_clk |       8.000 | {0.000 1.000} | N/A      | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/core_clk_bufg | PH1_PHY_LSLICE(21) |
++------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------+-------------+---------------+----------+----------------------------------------------------------------------------------------------------------------------+--------------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 | 21 |  0 |
+| Y2 |  0 |  0 |
+| Y1 |  0 |  0 |
+| Y0 |  0 |  0 |
++----+----+----+
+
+
+16. Global Clock gclk_9 Stat.
++------------+-----------------+--------------------------------------------------------+-------------------+-------+-------------+---------------+----------+---------------------------------------+--------------------+
+| Global Idx | Type            | Driver.Pin                                             | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Net                                   | FanoutGroup1       |
++------------+-----------------+--------------------------------------------------------+-------------------+-------+-------------+---------------+----------+---------------------------------------+--------------------+
+| gclk_9     | PH1_PHY_GCLK_V2 | u_cam_i2c_cfg/X_ui_i2c/scl_clk_created_gclkinst.clkout | B                 |       |             |               | N/A      | u_cam_i2c_cfg/X_ui_i2c/scl_clk_syn_10 | PH1_PHY_LSLICE(17) |
++------------+-----------------+--------------------------------------------------------+-------------------+-------+-------------+---------------+----------+---------------------------------------+--------------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 |  0 |  0 |
+| Y2 | 11 |  0 |
+| Y1 |  6 |  0 |
+| Y0 |  0 |  0 |
++----+----+----+
+
+
+17. Global Clock gclk_10 Stat.
++------------+-----------------+-----------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------+-------------+---------------+----------+-----------------------------------------------------------------+-------------------+----------------+
+| Global Idx | Type            | Driver.Pin                                                                        | Driver Region (D) | Clock                                                                               | Period (ns) | Waveform (ns) | Root (R) | Net                                                             | FanoutGroup1      | FanoutGroup2   |
++------------+-----------------+-----------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------+-------------+---------------+----------+-----------------------------------------------------------------+-------------------+----------------+
+| gclk_10    | PH1_PHY_GCLK_V2 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_created_gclkinst.clkout | T                 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0.clkdivout |       4.488 | {0.000 2.244} | N/A      | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_syn_1 | PH1_PHY_LSLICE(8) | PH1_PHY_PAD(4) |
++------------+-----------------+-----------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------+-------------+---------------+----------+-----------------------------------------------------------------+-------------------+----------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 |  0 |  0 |
+| Y2 |  6 |  0 |
+| Y1 |  6 |  0 |
+| Y0 |  0 |  0 |
++----+----+----+
+
+
+18. Global Clock gclk_11 Stat.
++------------+-----------------+-------------------------------+-------------------+---------------------------+-------------+---------------+----------+------------------------------------------------------------------------------+-------------------+----------------+
+| Global Idx | Type            | Driver.Pin                    | Driver Region (D) | Clock                     | Period (ns) | Waveform (ns) | Root (R) | Net                                                                          | FanoutGroup1      | FanoutGroup2   |
++------------+-----------------+-------------------------------+-------------------+---------------------------+-------------+---------------+----------+------------------------------------------------------------------------------+-------------------+----------------+
+| gclk_11    | PH1_PHY_GCLK_V2 | u_ui_pll/bufg_feedback.clkout | T                 | u_ui_pll/pll_inst.clkc[0] |       6.666 | {0.000 3.333} | N/A      | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_csi_rx_clock_det/I_ref_clock | PH1_PHY_LSLICE(9) | PH1_PHY_PLL(1) |
++------------+-----------------+-------------------------------+-------------------+---------------------------+-------------+---------------+----------+------------------------------------------------------------------------------+-------------------+----------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 |  0 |  0 |
+| Y2 |  2 |  0 |
+| Y1 |  0 |  0 |
+| Y0 |  8 |  0 |
++----+----+----+
+
+
+19. Global Clock gclk_12 Stat.
++------------+-----------------+----------------------------+-------------------+----------------+-------------+---------------+----------+--------------------+-------------------+----------------+
+| Global Idx | Type            | Driver.Pin                 | Driver Region (D) | Clock          | Period (ns) | Waveform (ns) | Root (R) | Net                | FanoutGroup1      | FanoutGroup2   |
++------------+-----------------+----------------------------+-------------------+----------------+-------------+---------------+----------+--------------------+-------------------+----------------+
+| gclk_12    | PH1_PHY_GCLK_V2 | u_mipi_ref_clk_bufg.clkout | B                 | board_ref_100m |      10.000 | {0.000 5.000} | N/A      | u_pcie_ddr/ref_clk | PH1_PHY_LSLICE(8) | PH1_PHY_PLL(2) |
++------------+-----------------+----------------------------+-------------------+----------------+-------------+---------------+----------+--------------------+-------------------+----------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 |  0 |  0 |
+| Y2 |  1 |  0 |
+| Y1 |  0 |  9 |
+| Y0 |  0 |  0 |
++----+----+----+
+
+
+20. Global Clock gclk_13 Stat.
++------------+-----------------+-----------------------+-------------------+---------+-------------+----------------+----------+-----------+-------------------+----------------+
+| Global Idx | Type            | Driver.Pin            | Driver Region (D) | Clock   | Period (ns) | Waveform (ns)  | Root (R) | Net       | FanoutGroup1      | FanoutGroup2   |
++------------+-----------------+-----------------------+-------------------+---------+-------------+----------------+----------+-----------+-------------------+----------------+
+| gclk_13    | PH1_PHY_GCLK_V2 | u_sys_clk_bufg.clkout | B                 | sys_clk |      40.000 | {0.000 20.000} | N/A      | sys_clk_g | PH1_PHY_LSLICE(8) | PH1_PHY_PLL(1) |
++------------+-----------------+-----------------------+-------------------+---------+-------------+----------------+----------+-----------+-------------------+----------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 |  0 |  0 |
+| Y2 |  0 |  0 |
+| Y1 |  0 |  8 |
+| Y0 |  0 |  1 |
++----+----+----+
+
+
+21. Global Clock gclk_14 Stat.
++------------+-----------------+--------------------------------------------------------------------------------------------+-------------------+--------------------------+-------------+---------------+----------+--------------------------------------------------------------------------------+--------------------+----------------+
+| Global Idx | Type            | Driver.Pin                                                                                 | Driver Region (D) | Clock                    | Period (ns) | Waveform (ns) | Root (R) | Net                                                                            | FanoutGroup1       | FanoutGroup2   |
++------------+-----------------+--------------------------------------------------------------------------------------------+-------------------+--------------------------+-------------+---------------+----------+--------------------------------------------------------------------------------+--------------------+----------------+
+| gclk_14    | PH1_PHY_GCLK_V2 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/bufg_feedback.clkout | B                 | u_pcie_ddr/u_ddr/dfi_clk |       7.500 | {0.229 3.979} | N/A      | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/clk0_out | PH1_PHY_GCLK_V2(1) | PH1_PHY_PLL(1) |
++------------+-----------------+--------------------------------------------------------------------------------------------+-------------------+--------------------------+-------------+---------------+----------+--------------------------------------------------------------------------------+--------------------+----------------+
++----+----+----+
+|    | X0 | X1 |
++----+----+----+
+| Y3 |  0 |  0 |
+| Y2 |  1 |  0 |
+| Y1 |  0 |  1 |
+| Y0 |  0 |  0 |
++----+----+----+
+
+
+22. Region X0Y0
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------+--------------------+
+| Idx      | Track | Type            | Constraint | Clock Loads | Total Loads | Net                                                                                                                                                                                    | FanoutGroup1         | FanoutGroup2     | FanoutGroup3       |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------+--------------------+
+| gclk_0   | 0     | PH1_PHY_GCLK_V2 | None       |        1134 |        1134 | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb                                                                                                             | PH1_PHY_LSLICE(1050) | PH1_PHY_ERAM(81) | PH1_PHY_DSPSIOU(3) |
+| gclk_3   | 1     | PH1_PHY_GCLK_V2 | None       |         185 |         186 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_syn_4                                                                                                                   | PH1_PHY_LSLICE(169)  | PH1_PHY_ERAM(17) |                    |
+| gclk_11  | 2     | PH1_PHY_GCLK_V2 | None       |           8 |           8 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_csi_rx_clock_det/I_ref_clock                                                                                                           | PH1_PHY_LSLICE(8)    |                  |                    |
+|          |       |                 |            |             |             |                                                                                                                                                                                        |                      |                  |                    |
+| local_6  | N/A   | PH1_PHY_SCLK_V2 | None       |        1134 |        1134 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_0_l_bk1_sclk_outnet | PH1_PHY_LSLICE(1050) | PH1_PHY_ERAM(81) | PH1_PHY_DSPSIOU(3) |
+| local_17 | N/A   | PH1_PHY_SCLK_V2 | None       |         185 |         186 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst_auto_created_sclk_s_0_l_bk2_sclk_outnet                                                                | PH1_PHY_LSLICE(169)  | PH1_PHY_ERAM(17) |                    |
+| local_31 | N/A   | PH1_PHY_SCLK_V2 | None       |           8 |           8 | u_ui_pll/bufg_feedback_auto_created_sclk_s_0_l_bk3_sclk_outnet                                                                                                                         | PH1_PHY_LSLICE(8)    |                  |                    |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------+--------------------+
+
+
+23. Region X1Y0
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------+----------------------------+------------------------+--------------------+
+| Idx      | Track | Type            | Constraint | Clock Loads | Total Loads | Net                                                                                                                                                                                    | FanoutGroup1         | FanoutGroup2       | FanoutGroup3               | FanoutGroup4           | FanoutGroup5       |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------+----------------------------+------------------------+--------------------+
+| gclk_0   | 2     | PH1_PHY_GCLK_V2 | None       |        3722 |        3722 | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb                                                                                                             | PH1_PHY_LSLICE(3599) | PH1_PHY_MSLICE(96) | PH1_PHY_SHIFTERHARDCON(12) | PH1_PHY_ERAM(10)       | PH1_PHY_DSPSIOU(5) |
+| gclk_1   | 4     | PH1_PHY_GCLK_V2 | None       |         219 |         219 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/bkIdx[1]$bk_used$u_ddrbank_top/t3_usr_clk                                                                            | PH1_PHY_LSLICE(219)  |                    |                            |                        |                    |
+| gclk_2   | 3     | PH1_PHY_GCLK_V2 | None       |         402 |         402 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_syn_1                                                                                                                        | PH1_PHY_LSLICE(361)  | PH1_PHY_MSLICE(23) | PH1_PHY_ERAM(14)           | PH1_PHY_DRAMHARDCON(4) |                    |
+| gclk_7   | 1     | PH1_PHY_GCLK_V2 | None       |           1 |           1 | core_clk                                                                                                                                                                               | PH1_PHY_PLL(1)       |                    |                            |                        |                    |
+| gclk_13  | 0     | PH1_PHY_GCLK_V2 | None       |           1 |           1 | sys_clk_g                                                                                                                                                                              | PH1_PHY_PLL(1)       |                    |                            |                        |                    |
+|          |       |                 |            |             |             |                                                                                                                                                                                        |                      |                    |                            |                        |                    |
+| local_2  | N/A   | PH1_PHY_SCLK_V2 | None       |        3722 |        3722 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_0_r_bk3_sclk_outnet | PH1_PHY_LSLICE(3599) | PH1_PHY_MSLICE(96) | PH1_PHY_SHIFTERHARDCON(12) | PH1_PHY_ERAM(10)       | PH1_PHY_DSPSIOU(5) |
+| local_11 | N/A   | PH1_PHY_SCLK_V2 | None       |         402 |         402 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_created_gclkinst_auto_created_sclk_s_0_r_bk4_sclk_outnet                                                                     | PH1_PHY_LSLICE(361)  | PH1_PHY_MSLICE(23) | PH1_PHY_ERAM(14)           | PH1_PHY_DRAMHARDCON(4) |                    |
+| local_15 | N/A   | PH1_PHY_SCLK_V2 | None       |         219 |         219 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_0_r_bk5_sclk_outnet                                                                         | PH1_PHY_LSLICE(219)  |                    |                            |                        |                    |
+| local_66 | N/A   | PH1_PHY_SCLK_V2 | None       |           1 |           1 | u_sys_clk_bufg_auto_created_sclk_s_0_r_bk1_sclk_outnet                                                                                                                                 | PH1_PHY_PLL(1)       |                    |                            |                        |                    |
+| local_67 | N/A   | PH1_PHY_SCLK_V2 | None       |           1 |           1 | u_sgdma_pll/bufg_feedback_auto_created_sclk_s_0_r_bk2_sclk_outnet                                                                                                                      | PH1_PHY_PLL(1)       |                    |                            |                        |                    |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------+----------------------------+------------------------+--------------------+
+
+
+24. Region X0Y1
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+------------------+---------------------+
+| Idx      | Track | Type            | Constraint | Clock Loads | Total Loads | Net                                                                                                                                                                                    | FanoutGroup1        | FanoutGroup2     | FanoutGroup3        |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+------------------+---------------------+
+| gclk_0   | 0     | PH1_PHY_GCLK_V2 | None       |         972 |         972 | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb                                                                                                             | PH1_PHY_LSLICE(877) | PH1_PHY_ERAM(82) | PH1_PHY_DSPSIOU(13) |
+| gclk_1   | 2     | PH1_PHY_GCLK_V2 | None       |         269 |         269 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/bkIdx[1]$bk_used$u_ddrbank_top/t3_usr_clk                                                                            | PH1_PHY_LSLICE(243) | PH1_PHY_ERAM(26) |                     |
+| gclk_3   | 1     | PH1_PHY_GCLK_V2 | None       |         373 |         373 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_syn_4                                                                                                                   | PH1_PHY_LSLICE(373) |                  |                     |
+| gclk_5   | 3     | PH1_PHY_GCLK_V2 | None       |          37 |          37 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_syn_1                                                                   | PH1_PHY_LSLICE(37)  |                  |                     |
+| gclk_6   | 4     | PH1_PHY_GCLK_V2 | None       |          23 |          23 | u_cam_i2c_cfg/I_clk_syn_1                                                                                                                                                              | PH1_PHY_LSLICE(23)  |                  |                     |
+| gclk_9   | 5     | PH1_PHY_GCLK_V2 | None       |           6 |           6 | u_cam_i2c_cfg/X_ui_i2c/scl_clk_syn_10                                                                                                                                                  | PH1_PHY_LSLICE(6)   |                  |                     |
+| gclk_10  | 6     | PH1_PHY_GCLK_V2 | None       |           6 |           6 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_syn_1                                                                                                                        | PH1_PHY_LSLICE(6)   |                  |                     |
+|          |       |                 |            |             |             |                                                                                                                                                                                        |                     |                  |                     |
+| local_8  | N/A   | PH1_PHY_SCLK_V2 | None       |         972 |         972 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_1_l_bk1_sclk_outnet | PH1_PHY_LSLICE(877) | PH1_PHY_ERAM(82) | PH1_PHY_DSPSIOU(13) |
+| local_12 | N/A   | PH1_PHY_SCLK_V2 | None       |         373 |         373 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst_auto_created_sclk_s_1_l_bk2_sclk_outnet                                                                | PH1_PHY_LSLICE(373) |                  |                     |
+| local_14 | N/A   | PH1_PHY_SCLK_V2 | None       |         269 |         269 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_1_l_bk3_sclk_outnet                                                                         | PH1_PHY_LSLICE(243) | PH1_PHY_ERAM(26) |                     |
+| local_23 | N/A   | PH1_PHY_SCLK_V2 | None       |          37 |          37 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_1_l_bk4_sclk_outnet                | PH1_PHY_LSLICE(37)  |                  |                     |
+| local_24 | N/A   | PH1_PHY_SCLK_V2 | None       |          23 |          23 | u_cam_i2c_cfg/I_clk_created_gclkinst_auto_created_sclk_s_1_l_bk5_sclk_outnet                                                                                                           | PH1_PHY_LSLICE(23)  |                  |                     |
+| local_34 | N/A   | PH1_PHY_SCLK_V2 | None       |           6 |           6 | u_cam_i2c_cfg/X_ui_i2c/scl_clk_created_gclkinst_auto_created_sclk_s_1_l_bk6_sclk_outnet                                                                                                | PH1_PHY_LSLICE(6)   |                  |                     |
+| local_35 | N/A   | PH1_PHY_SCLK_V2 | None       |           6 |           6 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_created_gclkinst_auto_created_sclk_s_1_l_bk7_sclk_outnet                                                                     | PH1_PHY_LSLICE(6)   |                  |                     |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+------------------+---------------------+
+
+
+25. Region X1Y1
++----------+-------+------------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+-------------------------+-------------------------+------------------------+---------------------+---------------------+
+| Idx      | Track | Type             | Constraint | Clock Loads | Total Loads | Net                                                                                                                                                                                    | FanoutGroup1         | FanoutGroup2            | FanoutGroup3            | FanoutGroup4           | FanoutGroup5        | FanoutGroup6        |
++----------+-------+------------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+-------------------------+-------------------------+------------------------+---------------------+---------------------+
+| gclk_0   | 3     | PH1_PHY_GCLK_V2  | None       |         993 |         993 | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb                                                                                                             | PH1_PHY_LSLICE(957)  | PH1_PHY_ERAM(21)        | PH1_PHY_DSPSIOU(13)     | PH1_PHY_DRAMHARDCON(2) |                     |                     |
+| gclk_1   | 2     | PH1_PHY_GCLK_V2  | None       |        3519 |        3519 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/bkIdx[1]$bk_used$u_ddrbank_top/t3_usr_clk                                                                            | PH1_PHY_LSLICE(3325) | PH1_PHY_MSLICE(132)     | PH1_PHY_DRAMHARDCON(39) | PH1_PHY_ERAM(17)       | PH1_PHY_DDR_BANK(5) | PH1_PHY_DDR4_CAL(1) |
+| gclk_2   | 4     | PH1_PHY_GCLK_V2  | None       |         339 |         339 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_syn_1                                                                                                                        | PH1_PHY_LSLICE(315)  | PH1_PHY_DRAMHARDCON(16) | PH1_PHY_DDR_BANK(5)     | PH1_PHY_ERAM(2)        | PH1_PHY_DDR4_CAL(1) |                     |
+| gclk_5   | 6     | PH1_PHY_GCLK_V2  | None       |          13 |          13 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_syn_1                                                                   | PH1_PHY_LSLICE(13)   |                         |                         |                        |                     |                     |
+| gclk_7   | 5     | PH1_PHY_GCLK_V2  | None       |          23 |          23 | core_clk                                                                                                                                                                               | PH1_PHY_LSLICE(23)   |                         |                         |                        |                     |                     |
+| gclk_12  | 0     | PH1_PHY_GCLK_V2  | None       |           9 |           9 | u_pcie_ddr/ref_clk                                                                                                                                                                     | PH1_PHY_LSLICE(8)    | PH1_PHY_PLL(1)          |                         |                        |                     |                     |
+| gclk_13  | 7     | PH1_PHY_GCLK_V2  | None       |           8 |           8 | sys_clk_g                                                                                                                                                                              | PH1_PHY_LSLICE(8)    |                         |                         |                        |                     |                     |
+| gclk_14  | 1     | PH1_PHY_GCLK_V2  | None       |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/clk0_out                                                                                                         | PH1_PHY_PLL(1)       |                         |                         |                        |                     |                     |
+|          |       |                  |            |             |             |                                                                                                                                                                                        |                      |                         |                         |                        |                     |                     |
+| local_3  | N/A   | PH1_PHY_SCLK_V2  | None       |        3519 |        3519 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_1_r_bk3_sclk_outnet                                                                         | PH1_PHY_LSLICE(3325) | PH1_PHY_MSLICE(132)     | PH1_PHY_DRAMHARDCON(39) | PH1_PHY_ERAM(17)       | PH1_PHY_DDR_BANK(5) | PH1_PHY_DDR4_CAL(1) |
+| local_7  | N/A   | PH1_PHY_SCLK_V2  | None       |         993 |         993 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_1_r_bk4_sclk_outnet | PH1_PHY_LSLICE(957)  | PH1_PHY_ERAM(21)        | PH1_PHY_DSPSIOU(13)     | PH1_PHY_DRAMHARDCON(2) |                     |                     |
+| local_13 | N/A   | PH1_PHY_SCLK_V2  | None       |         339 |         339 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_created_gclkinst_auto_created_sclk_s_1_r_bk5_sclk_outnet                                                                     | PH1_PHY_LSLICE(315)  | PH1_PHY_DRAMHARDCON(16) | PH1_PHY_DDR_BANK(5)     | PH1_PHY_ERAM(2)        | PH1_PHY_DDR4_CAL(1) |                     |
+| local_25 | N/A   | PH1_PHY_SCLK_V2  | None       |          23 |          23 | u_sgdma_pll/bufg_feedback_auto_created_sclk_s_1_r_bk6_sclk_outnet                                                                                                                      | PH1_PHY_LSLICE(23)   |                         |                         |                        |                     |                     |
+| local_28 | N/A   | PH1_PHY_SCLK_V2  | None       |          13 |          13 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_1_r_bk7_sclk_outnet                | PH1_PHY_LSLICE(13)   |                         |                         |                        |                     |                     |
+| local_30 | N/A   | PH1_PHY_SCLK_V2  | None       |           9 |           9 | u_mipi_ref_clk_bufg_auto_created_sclk_s_1_r_bk1_sclk_outnet                                                                                                                            | PH1_PHY_LSLICE(8)    | PH1_PHY_PLL(1)          |                         |                        |                     |                     |
+| local_32 | N/A   | PH1_PHY_SCLK_V2  | None       |           8 |           8 | u_sys_clk_bufg_auto_created_sclk_s_1_r_bk8_sclk_outnet                                                                                                                                 | PH1_PHY_LSLICE(8)    |                         |                         |                        |                     |                     |
+| local_38 | N/A   | PH1_PHY_HP_IOCLK | None       |           4 |           4 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/bkIdx[1]$bk_used$u_ddrbank_top/t3_ioclk[1]                                                                           | PH1_PHY_DDR_BANK(4)  |                         |                         |                        |                     |                     |
+| local_39 | N/A   | PH1_PHY_HP_IOCLK | None       |           4 |           4 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/bkIdx[1]$bk_used$u_ddrbank_top/t3_ioclk[0]                                                                           | PH1_PHY_DDR_BANK(4)  |                         |                         |                        |                     |                     |
+| local_53 | N/A   | PH1_PHY_PLL      | X81Y79Z0   |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/pll0_clk_1                                                                                                                     | PH1_PHY_HP_MLCLK(1)  |                         |                         |                        |                     |                     |
+| local_54 | N/A   | PH1_PHY_PLL      | X81Y79Z0   |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/pll0_clk_2                                                                                                                     | PH1_PHY_HP_MLCLK(1)  |                         |                         |                        |                     |                     |
+| local_55 | N/A   | PH1_PHY_HP_MLCLK | None       |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/pll0_mlclk_1                                                                                                                   | PH1_PHY_HP_IOCLK(1)  |                         |                         |                        |                     |                     |
+| local_56 | N/A   | PH1_PHY_HP_MLCLK | None       |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/pll0_mlclk_2                                                                                                                   | PH1_PHY_HP_IOCLK(1)  |                         |                         |                        |                     |                     |
+| local_58 | N/A   | PH1_PHY_PLL      | X81Y79Z0   |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/refclk                                                                                                           | PH1_PHY_PLL(1)       |                         |                         |                        |                     |                     |
+| local_65 | N/A   | PH1_PHY_TIE      | None       |           1 |           1 | x81y59_clk_auto_gnd                                                                                                                                                                    | PH1_PHY_PLL(1)       |                         |                         |                        |                     |                     |
+| local_68 | N/A   | PH1_PHY_SCLK_V2  | None       |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/bufg_feedback_auto_created_sclk_s_1_r_bk2_sclk_outnet                                                            | PH1_PHY_PLL(1)       |                         |                         |                        |                     |                     |
++----------+-------+------------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+-------------------------+-------------------------+------------------------+---------------------+---------------------+
+
+
+26. Region X0Y2
++----------+-------+-------------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+---------------------+------------------+-------------------------+---------------------+
+| Idx      | Track | Type              | Constraint | Clock Loads | Total Loads | Net                                                                                                                                                                                    | FanoutGroup1         | FanoutGroup2        | FanoutGroup3     | FanoutGroup4            | FanoutGroup5        |
++----------+-------+-------------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+---------------------+------------------+-------------------------+---------------------+
+| gclk_0   | 2     | PH1_PHY_GCLK_V2   | None       |        4610 |        4610 | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb                                                                                                             | PH1_PHY_LSLICE(4173) | PH1_PHY_MSLICE(292) | PH1_PHY_ERAM(87) | PH1_PHY_DRAMHARDCON(38) | PH1_PHY_DSPSIOU(20) |
+| gclk_1   | 3     | PH1_PHY_GCLK_V2   | None       |         159 |         159 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/bkIdx[1]$bk_used$u_ddrbank_top/t3_usr_clk                                                                            | PH1_PHY_LSLICE(151)  | PH1_PHY_ERAM(8)     |                  |                         |                     |
+| gclk_3   | 9     | PH1_PHY_GCLK_V2   | None       |           2 |           2 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_syn_4                                                                                                                   | PH1_PHY_LSLICE(2)    |                     |                  |                         |                     |
+| gclk_4   | 4     | PH1_PHY_GCLK_V2   | None       |         144 |         144 | cwc_jtck_syn_1                                                                                                                                                                         | PH1_PHY_LSLICE(144)  |                     |                  |                         |                     |
+| gclk_5   | 6     | PH1_PHY_GCLK_V2   | None       |          23 |          23 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_syn_1                                                                   | PH1_PHY_LSLICE(23)   |                     |                  |                         |                     |
+| gclk_6   | 5     | PH1_PHY_GCLK_V2   | None       |          74 |          74 | u_cam_i2c_cfg/I_clk_syn_1                                                                                                                                                              | PH1_PHY_LSLICE(74)   |                     |                  |                         |                     |
+| gclk_9   | 7     | PH1_PHY_GCLK_V2   | None       |          11 |          11 | u_cam_i2c_cfg/X_ui_i2c/scl_clk_syn_10                                                                                                                                                  | PH1_PHY_LSLICE(11)   |                     |                  |                         |                     |
+| gclk_10  | 8     | PH1_PHY_GCLK_V2   | None       |           6 |           6 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_syn_1                                                                                                                        | PH1_PHY_PAD(4)       | PH1_PHY_LSLICE(2)   |                  |                         |                     |
+| gclk_11  | 1     | PH1_PHY_GCLK_V2   | None       |           2 |           2 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_csi_rx_clock_det/I_ref_clock                                                                                                           | PH1_PHY_PLL(1)       | PH1_PHY_LSLICE(1)   |                  |                         |                     |
+| gclk_12  | 0     | PH1_PHY_GCLK_V2   | None       |           1 |           1 | u_pcie_ddr/ref_clk                                                                                                                                                                     | PH1_PHY_PLL(1)       |                     |                  |                         |                     |
+| gclk_14  | N/A   | PH1_PHY_GCLK_V2   | None       |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/clk0_out                                                                                                         | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+|          |       |                   |            |             |             |                                                                                                                                                                                        |                      |                     |                  |                         |                     |
+| local_0  | N/A   | PH1_PHY_SCLK_V2   | None       |        4610 |        4610 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_2_l_bk3_sclk_outnet | PH1_PHY_LSLICE(4173) | PH1_PHY_MSLICE(292) | PH1_PHY_ERAM(87) | PH1_PHY_DRAMHARDCON(38) | PH1_PHY_DSPSIOU(20) |
+| local_18 | N/A   | PH1_PHY_SCLK_V2   | None       |         159 |         159 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_2_l_bk4_sclk_outnet                                                                         | PH1_PHY_LSLICE(151)  | PH1_PHY_ERAM(8)     |                  |                         |                     |
+| local_19 | N/A   | PH1_PHY_SCLK_V2   | None       |         144 |         144 | cwc_jtck_created_gclkinst_auto_created_sclk_s_2_l_bk5_sclk_outnet                                                                                                                      | PH1_PHY_LSLICE(144)  |                     |                  |                         |                     |
+| local_21 | N/A   | PH1_PHY_SCLK_V2   | None       |          74 |          74 | u_cam_i2c_cfg/I_clk_created_gclkinst_auto_created_sclk_s_2_l_bk6_sclk_outnet                                                                                                           | PH1_PHY_LSLICE(74)   |                     |                  |                         |                     |
+| local_26 | N/A   | PH1_PHY_SCLK_V2   | None       |          23 |          23 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_2_l_bk7_sclk_outnet                | PH1_PHY_LSLICE(23)   |                     |                  |                         |                     |
+| local_29 | N/A   | PH1_PHY_SCLK_V2   | None       |          11 |          11 | u_cam_i2c_cfg/X_ui_i2c/scl_clk_created_gclkinst_auto_created_sclk_s_2_l_bk8_sclk_outnet                                                                                                | PH1_PHY_LSLICE(11)   |                     |                  |                         |                     |
+| local_36 | N/A   | PH1_PHY_SCLK_V2   | None       |           6 |           6 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_created_gclkinst_auto_created_sclk_s_2_l_bk9_sclk_outnet                                                                     | PH1_PHY_PAD(4)       | PH1_PHY_LSLICE(2)   |                  |                         |                     |
+| local_37 | N/A   | PH1_PHY_LCLK_V2   | None       |           4 |           4 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x4                                                                                                                              | PH1_PHY_PAD(4)       |                     |                  |                         |                     |
+| local_41 | N/A   | PH1_PHY_PCIE_V3   | None       |           1 |           1 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/core_clk                                                                        | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_42 | N/A   | PH1_PHY_PAD       | None       |           2 |           2 | mipi_clk_hs_rx_p_dup_1                                                                                                                                                                 | PH1_PHY_LCLK_V2(2)   |                     |                  |                         |                     |
+| local_43 | N/A   | PH1_PHY_SCLK_V2   | None       |           2 |           2 | u_ui_pll/bufg_feedback_auto_created_sclk_s_2_l_bk2_sclk_outnet                                                                                                                         | PH1_PHY_PLL(1)       | PH1_PHY_LSLICE(1)   |                  |                         |                     |
+| local_44 | N/A   | PH1_PHY_SCLK_V2   | None       |           2 |           2 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst_auto_created_sclk_s_2_l_bk10_sclk_outnet                                                               | PH1_PHY_LSLICE(2)    |                     |                  |                         |                     |
+| local_45 | N/A   | PH1_PHY_PAD       | None       |           1 |           1 | mipi_ref_clk_p_dup_1                                                                                                                                                                   | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_46 | N/A   | PH1_PHY_PAD       | None       |           1 |           1 | sys_clk_dup_1                                                                                                                                                                          | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_47 | N/A   | PH1_PHY_PLL       | None       |           1 |           1 | u_cam_i2c_cfg/I_clk                                                                                                                                                                    | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_48 | N/A   | PH1_PHY_LSLICE    | None       |           1 |           1 | u_cam_i2c_cfg/X_ui_i2c/scl_clk                                                                                                                                                         | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_49 | N/A   | PH1_PHY_LCLK_V2   | None       |           1 |           1 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock                                                                                                                         | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_50 | N/A   | PH1_PHY_LCLK_V2   | None       |           1 |           1 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2                                                                                                                              | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_51 | N/A   | PH1_PHY_CONFIG_V2 | None       |           1 |           1 | cwc_jtck                                                                                                                                                                               | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_52 | N/A   | PH1_PHY_PLL       | None       |           1 |           1 | u_ui_pll/clk0_buf                                                                                                                                                                      | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_57 | N/A   | PH1_PHY_PLL       | X81Y40Z0   |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/clk0_buf                                                                                                         | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_59 | N/A   | PH1_PHY_PLL       | X81Y79Z0   |           1 |           1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk                                                                                                                              | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_60 | N/A   | PH1_PHY_PLL       | None       |           1 |           1 | u_sgdma_pll/clk0_buf                                                                                                                                                                   | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_61 | N/A   | PH1_PHY_PLL       | None       |           1 |           1 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk                                                                         | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_62 | N/A   | PH1_PHY_PLL       | X0Y120Z0   |           1 |           1 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/clk0_buf                                              | PH1_PHY_GCLK_V2(1)   |                     |                  |                         |                     |
+| local_69 | N/A   | PH1_PHY_SCLK_V2   | None       |           1 |           1 | u_mipi_ref_clk_bufg_auto_created_sclk_s_2_l_bk1_sclk_outnet                                                                                                                            | PH1_PHY_PLL(1)       |                     |                  |                         |                     |
++----------+-------+-------------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+---------------------+------------------+-------------------------+---------------------+
+
+
+27. Region X1Y2
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------+------------------+---------------------+---------------------------+
+| Idx      | Track | Type            | Constraint | Clock Loads | Total Loads | Net                                                                                                                                                                                    | FanoutGroup1         | FanoutGroup2             | FanoutGroup3       | FanoutGroup4     | FanoutGroup5        | FanoutGroup6              |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------+------------------+---------------------+---------------------------+
+| gclk_0   | 0     | PH1_PHY_GCLK_V2 | None       |        2593 |        2593 | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb                                                                                                             | PH1_PHY_LSLICE(2274) | PH1_PHY_DRAMHARDCON(245) | PH1_PHY_MSLICE(32) | PH1_PHY_ERAM(23) | PH1_PHY_DSPSIOU(18) | PH1_PHY_SHIFTERHARDCON(1) |
+| gclk_1   | 1     | PH1_PHY_GCLK_V2 | None       |         698 |         698 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_top/u_ddrphy_bank/bkIdx[1]$bk_used$u_ddrbank_top/t3_usr_clk                                                                            | PH1_PHY_LSLICE(683)  | PH1_PHY_ERAM(15)         |                    |                  |                     |                           |
+|          |       |                 |            |             |             |                                                                                                                                                                                        |                      |                          |                    |                  |                     |                           |
+| local_4  | N/A   | PH1_PHY_SCLK_V2 | None       |        2593 |        2593 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_2_r_bk1_sclk_outnet | PH1_PHY_LSLICE(2274) | PH1_PHY_DRAMHARDCON(245) | PH1_PHY_MSLICE(32) | PH1_PHY_ERAM(23) | PH1_PHY_DSPSIOU(18) | PH1_PHY_SHIFTERHARDCON(1) |
+| local_10 | N/A   | PH1_PHY_SCLK_V2 | None       |         698 |         698 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_2_r_bk2_sclk_outnet                                                                         | PH1_PHY_LSLICE(683)  | PH1_PHY_ERAM(15)         |                    |                  |                     |                           |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------+------------------+---------------------+---------------------------+
+
+
+28. Region X0Y3
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+---------------------+------------------+-------------------------+----------------+
+| Idx      | Track | Type            | Constraint | Clock Loads | Total Loads | Net                                                                                                                                                                                    | FanoutGroup1         | FanoutGroup2        | FanoutGroup3     | FanoutGroup4            | FanoutGroup5   |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+---------------------+------------------+-------------------------+----------------+
+| gclk_0   | 3     | PH1_PHY_GCLK_V2 | None       |        4477 |        4477 | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb                                                                                                             | PH1_PHY_LSLICE(4260) | PH1_PHY_MSLICE(112) | PH1_PHY_ERAM(90) | PH1_PHY_DRAMHARDCON(14) | PH1_PHY_PLL(1) |
+| gclk_4   | 5     | PH1_PHY_GCLK_V2 | None       |          42 |          42 | cwc_jtck_syn_1                                                                                                                                                                         | PH1_PHY_LSLICE(42)   |                     |                  |                         |                |
+| gclk_5   | 4     | PH1_PHY_GCLK_V2 | None       |          76 |          76 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_syn_1                                                                   | PH1_PHY_LSLICE(75)   | PH1_PHY_PLL(1)      |                  |                         |                |
+| gclk_8   | 6     | PH1_PHY_GCLK_V2 | None       |          21 |          21 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/core_clk_bufg                                                                   | PH1_PHY_LSLICE(21)   |                     |                  |                         |                |
+|          |       |                 |            |             |             |                                                                                                                                                                                        |                      |                     |                  |                         |                |
+| local_1  | N/A   | PH1_PHY_SCLK_V2 | None       |        4287 |        4287 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_3_l_bk3_sclk_outnet | PH1_PHY_LSLICE(4075) | PH1_PHY_MSLICE(112) | PH1_PHY_ERAM(86) | PH1_PHY_DRAMHARDCON(14) |                |
+| local_16 | N/A   | PH1_PHY_SCLK_V2 | None       |         189 |         189 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_bufg_hclk_auto_created_dual_sector_sclk_s_3_l_bk2_sclk_outnet                                  | PH1_PHY_LSLICE(185)  | PH1_PHY_ERAM(4)     |                  |                         |                |
+| local_20 | N/A   | PH1_PHY_SCLK_V2 | None       |          76 |          76 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_3_l_bk5_sclk_outnet                | PH1_PHY_LSLICE(75)   | PH1_PHY_PLL(1)      |                  |                         |                |
+| local_22 | N/A   | PH1_PHY_SCLK_V2 | None       |          42 |          42 | cwc_jtck_created_gclkinst_auto_created_sclk_s_3_l_bk6_sclk_outnet                                                                                                                      | PH1_PHY_LSLICE(42)   |                     |                  |                         |                |
+| local_27 | N/A   | PH1_PHY_SCLK_V2 | None       |          21 |          21 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_pcie_bufg_auto_created_sclk_s_3_l_bk7_sclk_outnet              | PH1_PHY_LSLICE(21)   |                     |                  |                         |                |
+| local_41 | 0     | PH1_PHY_PCIE_V3 | None       |           1 |           1 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/core_clk                                                                        | PH1_PHY_PLL(1)       |                     |                  |                         |                |
+| local_63 | N/A   | PH1_PHY_SCLK_V2 | X37Y139Z3  |           1 |           1 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/clk0_buf_sclk                                         | PH1_PHY_PLL(1)       |                     |                  |                         |                |
+| local_64 | N/A   | PH1_PHY_SCLK_V2 | X37Y139Z0  |           1 |           1 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/refclk                                                | PH1_PHY_PLL(1)       |                     |                  |                         |                |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+---------------------+------------------+-------------------------+----------------+
+
+
+29. Region X1Y3
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------+
+| Idx      | Track | Type            | Constraint | Clock Loads | Total Loads | Net                                                                                                                                                                                    | FanoutGroup1         | FanoutGroup2             | FanoutGroup3       |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------+
+| gclk_0   | 1     | PH1_PHY_GCLK_V2 | None       |        2200 |        2200 | u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb                                                                                                             | PH1_PHY_LSLICE(2019) | PH1_PHY_DRAMHARDCON(159) | PH1_PHY_MSLICE(22) |
+| gclk_5   | 2     | PH1_PHY_GCLK_V2 | None       |           8 |           8 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_syn_1                                                                   | PH1_PHY_LSLICE(6)    | PH1_PHY_PCIE_V3(2)       |                    |
+|          |       |                 |            |             |             |                                                                                                                                                                                        |                      |                          |                    |
+| local_5  | N/A   | PH1_PHY_SCLK_V2 | None       |        1440 |        1440 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_3_r_bk2_sclk_outnet | PH1_PHY_LSLICE(1259) | PH1_PHY_DRAMHARDCON(159) | PH1_PHY_MSLICE(22) |
+| local_9  | N/A   | PH1_PHY_SCLK_V2 | None       |         760 |         760 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_bufg_hclk_auto_created_dual_sector_sclk_s_3_r_bk1_sclk_outnet                                  | PH1_PHY_LSLICE(760)  |                          |                    |
+| local_33 | N/A   | PH1_PHY_SCLK_V2 | None       |           8 |           8 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_3_r_bk3_sclk_outnet                | PH1_PHY_LSLICE(6)    | PH1_PHY_PCIE_V3(2)       |                    |
+| local_40 | N/A   | PH1_PHY_TIE     | None       |           4 |           4 | x71y139_clk_auto_gnd                                                                                                                                                                   | PH1_PHY_PCIE_V3(4)   |                          |                    |
++----------+-------+-----------------+------------+-------------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------+
+
+
+
+-----------------------------------------------------------------------------------------------------
+----------------------------------------B. Clock Buffer Info.----------------------------------------
+-----------------------------------------------------------------------------------------------------
+
+1.Clock Buffer Index.
++---------+------------------+------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Index   | Type             | Location   | Sector | Fanout | Buffer                                                                                                                                                                     |
++---------+------------------+------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| gclk_1  | PH1_PHY_GCLK_V2  | x37y99z16  |      2 |     11 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback                             |
+| gclk_2  | PH1_PHY_GCLK_V2  | x37y99z1   |      2 |      5 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg                                                                                                     |
+| gclk_3  | PH1_PHY_GCLK_V2  | x37y99z3   |      2 |      5 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst                                            |
+| gclk_4  | PH1_PHY_GCLK_V2  | x37y99z20  |      2 |      3 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst                                                                                            |
+| gclk_5  | PH1_PHY_GCLK_V2  | x37y99z7   |      2 |      2 | u_mipi_ref_clk_bufg                                                                                                                                                        |
+| gclk_6  | PH1_PHY_GCLK_V2  | x37y99z6   |      2 |      2 | u_sys_clk_bufg                                                                                                                                                             |
+| gclk_7  | PH1_PHY_GCLK_V2  | x37y99z0   |      2 |      2 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/bufg_feedback                                                                                        |
+| gclk_8  | PH1_PHY_GCLK_V2  | x37y99z4   |      2 |      2 | u_sgdma_pll/bufg_feedback                                                                                                                                                  |
+| gclk_9  | PH1_PHY_GCLK_V2  | x37y99z19  |      2 |      2 | u_ui_pll/bufg_feedback                                                                                                                                                     |
+| gclk_10 | PH1_PHY_GCLK_V2  | x37y99z21  |      2 |      2 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_created_gclkinst                                                                                                 |
+| gclk_11 | PH1_PHY_GCLK_V2  | x37y99z2   |      2 |      2 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_created_gclkinst                                                                                                 |
+| gclk_12 | PH1_PHY_GCLK_V2  | x37y99z5   |      2 |      2 | cwc_jtck_created_gclkinst                                                                                                                                                  |
+| gclk_13 | PH1_PHY_GCLK_V2  | x37y99z17  |      2 |      2 | u_cam_i2c_cfg/I_clk_created_gclkinst                                                                                                                                       |
+| gclk_14 | PH1_PHY_GCLK_V2  | x37y99z8   |      2 |      2 | u_cam_i2c_cfg/X_ui_i2c/scl_clk_created_gclkinst                                                                                                                            |
+| gclk_15 | PH1_PHY_GCLK_V2  | x37y99z18  |      2 |      1 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_pcie_bufg                                          |
+|         |                  |            |        |        |                                                                                                                                                                            |
+| sclk_1  | PH1_PHY_SCLK_V2  | x37y99z2   |      2 |   4610 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_2_l_bk3 |
+| sclk_2  | PH1_PHY_SCLK_V2  | x37y139z2  |      3 |   4287 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_3_l_bk3 |
+| sclk_3  | PH1_PHY_SCLK_V2  | x37y19z14  |      0 |   3722 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_0_r_bk3 |
+| sclk_4  | PH1_PHY_SCLK_V2  | x37y59z14  |      1 |   3519 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_1_r_bk3                                                                         |
+| sclk_5  | PH1_PHY_SCLK_V2  | x37y99z12  |      2 |   2593 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_2_r_bk1 |
+| sclk_6  | PH1_PHY_SCLK_V2  | x37y139z13 |      3 |   1440 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_3_r_bk2 |
+| sclk_7  | PH1_PHY_SCLK_V2  | x37y19z0   |      0 |   1134 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_0_l_bk1 |
+| sclk_8  | PH1_PHY_SCLK_V2  | x37y59z15  |      1 |    993 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_1_r_bk4 |
+| sclk_9  | PH1_PHY_SCLK_V2  | x37y59z0   |      1 |    972 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/bufg_feedback_auto_created_sclk_s_1_l_bk1 |
+| sclk_10 | PH1_PHY_SCLK_V2  | x37y139z12 |      3 |    760 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_bufg_hclk_auto_created_dual_sector_sclk_s_3_r_bk1                                  |
+| sclk_11 | PH1_PHY_SCLK_V2  | x37y99z13  |      2 |    698 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_2_r_bk2                                                                         |
+| sclk_12 | PH1_PHY_SCLK_V2  | x37y19z15  |      0 |    402 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_created_gclkinst_auto_created_sclk_s_0_r_bk4                                                                     |
+| sclk_13 | PH1_PHY_SCLK_V2  | x37y59z1   |      1 |    373 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst_auto_created_sclk_s_1_l_bk2                                                                |
+| sclk_14 | PH1_PHY_SCLK_V2  | x37y59z16  |      1 |    339 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_mcu/i_clk_created_gclkinst_auto_created_sclk_s_1_r_bk5                                                                     |
+| sclk_15 | PH1_PHY_SCLK_V2  | x37y59z2   |      1 |    269 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_1_l_bk3                                                                         |
+| sclk_16 | PH1_PHY_SCLK_V2  | x37y19z16  |      0 |    219 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_0_r_bk5                                                                         |
+| sclk_17 | PH1_PHY_SCLK_V2  | x37y139z1  |      3 |    189 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_bufg_hclk_auto_created_dual_sector_sclk_s_3_l_bk2                                  |
+| sclk_18 | PH1_PHY_SCLK_V2  | x37y19z1   |      0 |    186 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst_auto_created_sclk_s_0_l_bk2                                                                |
+| sclk_19 | PH1_PHY_SCLK_V2  | x37y99z3   |      2 |    159 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_dfi_clk_bufg_auto_created_sclk_s_2_l_bk4                                                                         |
+| sclk_20 | PH1_PHY_SCLK_V2  | x37y99z4   |      2 |    144 | cwc_jtck_created_gclkinst_auto_created_sclk_s_2_l_bk5                                                                                                                      |
+| sclk_21 | PH1_PHY_SCLK_V2  | x37y139z4  |      3 |     76 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_3_l_bk5                |
+| sclk_22 | PH1_PHY_SCLK_V2  | x37y99z5   |      2 |     74 | u_cam_i2c_cfg/I_clk_created_gclkinst_auto_created_sclk_s_2_l_bk6                                                                                                           |
+| sclk_23 | PH1_PHY_SCLK_V2  | x37y139z5  |      3 |     42 | cwc_jtck_created_gclkinst_auto_created_sclk_s_3_l_bk6                                                                                                                      |
+| sclk_24 | PH1_PHY_SCLK_V2  | x37y59z3   |      1 |     37 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_1_l_bk4                |
+| sclk_25 | PH1_PHY_SCLK_V2  | x37y59z4   |      1 |     23 | u_cam_i2c_cfg/I_clk_created_gclkinst_auto_created_sclk_s_1_l_bk5                                                                                                           |
+| sclk_26 | PH1_PHY_SCLK_V2  | x37y59z17  |      1 |     23 | u_sgdma_pll/bufg_feedback_auto_created_sclk_s_1_r_bk6                                                                                                                      |
+| sclk_27 | PH1_PHY_SCLK_V2  | x37y99z6   |      2 |     23 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_2_l_bk7                |
+| sclk_28 | PH1_PHY_SCLK_V2  | x37y139z6  |      3 |     21 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_pcie_bufg_auto_created_sclk_s_3_l_bk7              |
+| sclk_29 | PH1_PHY_SCLK_V2  | x37y59z18  |      1 |     13 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_1_r_bk7                |
+| sclk_30 | PH1_PHY_SCLK_V2  | x37y99z7   |      2 |     11 | u_cam_i2c_cfg/X_ui_i2c/scl_clk_created_gclkinst_auto_created_sclk_s_2_l_bk8                                                                                                |
+| sclk_31 | PH1_PHY_SCLK_V2  | x37y59z12  |      1 |      9 | u_mipi_ref_clk_bufg_auto_created_sclk_s_1_r_bk1                                                                                                                            |
+| sclk_32 | PH1_PHY_SCLK_V2  | x37y19z2   |      0 |      8 | u_ui_pll/bufg_feedback_auto_created_sclk_s_0_l_bk3                                                                                                                         |
+| sclk_33 | PH1_PHY_SCLK_V2  | x37y59z19  |      1 |      8 | u_sys_clk_bufg_auto_created_sclk_s_1_r_bk8                                                                                                                                 |
+| sclk_34 | PH1_PHY_SCLK_V2  | x37y139z14 |      3 |      8 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/aux_clk_created_gclkinst_auto_created_sclk_s_3_r_bk3                |
+| sclk_35 | PH1_PHY_SCLK_V2  | x37y59z5   |      1 |      6 | u_cam_i2c_cfg/X_ui_i2c/scl_clk_created_gclkinst_auto_created_sclk_s_1_l_bk6                                                                                                |
+| sclk_36 | PH1_PHY_SCLK_V2  | x37y59z6   |      1 |      6 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_created_gclkinst_auto_created_sclk_s_1_l_bk7                                                                     |
+| sclk_37 | PH1_PHY_SCLK_V2  | x37y99z8   |      2 |      6 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/w_hs_clk_x2_created_gclkinst_auto_created_sclk_s_2_l_bk9                                                                     |
+| sclk_38 | PH1_PHY_SCLK_V2  | x37y99z1   |      2 |      2 | u_ui_pll/bufg_feedback_auto_created_sclk_s_2_l_bk2                                                                                                                         |
+| sclk_39 | PH1_PHY_SCLK_V2  | x37y99z9   |      2 |      2 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_10bit_unpack/I_clock_created_gclkinst_auto_created_sclk_s_2_l_bk10                                                               |
+| sclk_40 | PH1_PHY_SCLK_V2  | x37y139z0  |      3 |      1 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_pcie_sclk                                          |
+| sclk_41 | PH1_PHY_SCLK_V2  | x37y139z3  |      3 |      1 | u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_clock_ctrl/u_al_pcie_ip_ph1_core_pll/u_pll_fb_sclk                             |
+| sclk_42 | PH1_PHY_SCLK_V2  | x37y19z12  |      0 |      1 | u_sys_clk_bufg_auto_created_sclk_s_0_r_bk1                                                                                                                                 |
+| sclk_43 | PH1_PHY_SCLK_V2  | x37y19z13  |      0 |      1 | u_sgdma_pll/bufg_feedback_auto_created_sclk_s_0_r_bk2                                                                                                                      |
+| sclk_44 | PH1_PHY_SCLK_V2  | x37y59z13  |      1 |      1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_ddrphy_pll1/bufg_feedback_auto_created_sclk_s_1_r_bk2                                                            |
+| sclk_45 | PH1_PHY_SCLK_V2  | x37y99z0   |      2 |      1 | u_mipi_ref_clk_bufg_auto_created_sclk_s_2_l_bk1                                                                                                                            |
+|         |                  |            |        |        |                                                                                                                                                                            |
+| lclk_1  | PH1_PHY_LCLK_V2  | x0y99z0    |      2 |      4 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_0                                                                                                  |
+| lclk_2  | PH1_PHY_HP_MLCLK | x81y59z0   |      1 |      1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_mlclk_0                                                                                                          |
+| lclk_3  | PH1_PHY_HP_MLCLK | x81y59z1   |      1 |      1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_mlclk_1                                                                                                          |
+| lclk_4  | PH1_PHY_LCLK_V2  | x0y99z1    |      2 |      0 | u_cam_video_source/u_mipi_csi_rx/u_csi_rx_phy/u_rx_clk_gen/U_io_clk_div_1                                                                                                  |
+|         |                  |            |        |        |                                                                                                                                                                            |
+| mlclk_1 | PH1_PHY_HP_MLCLK | x81y59z0   |      1 |      1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_mlclk_0                                                                                                          |
+| mlclk_2 | PH1_PHY_HP_MLCLK | x81y59z1   |      1 |      1 | u_pcie_ddr/u_ddr/u_ddrmc_top/u_ddr_phy/u_ddrphy_clk_gen/u_mlclk_1                                                                                                          |
++---------+------------------+------------+--------+--------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+2.Clock Buffer Driver Stat.
++---------+------------+------+-----------------------------+----------------+------------+
+| Index   | Location   | Site | DriverType.Pin              | DriverLocation | DriverSite |
++---------+------------+------+-----------------------------+----------------+------------+
+| gclk_1  | x37y99z16  | T    | PH1_PHY_PLL.clkc[0]         | x0y120z0       | S3 L       |
+| gclk_2  | x37y99z1   | B    | PH1_PHY_GCLK_V2.clkout      | x37y99z0       | S2 L       |
+| gclk_3  | x37y99z3   | B    | PH1_PHY_PLL.clkc[1]         | x81y39z0       | S0 R       |
+| gclk_4  | x37y99z20  | T    | PH1_PHY_LCLK_V2.clkdivout   | x0y99z1        | S2 L       |
+| gclk_5  | x37y99z7   | B    | PH1_PHY_PAD.di              | x0y57z0        | S1 L       |
+| gclk_6  | x37y99z6   | B    | PH1_PHY_PAD.di              | x0y57z2        | S1 L       |
+| gclk_7  | x37y99z0   | B    | PH1_PHY_PLL.clkc[0]         | x81y40z0       | S1 R       |
+| gclk_8  | x37y99z4   | B    | PH1_PHY_PLL.clkc[0]         | x81y39z0       | S0 R       |
+| gclk_9  | x37y99z19  | T    | PH1_PHY_PLL.clkc[0]         | x0y119z0       | S2 L       |
+| gclk_10 | x37y99z21  | T    | PH1_PHY_LCLK_V2.clkdivout   | x0y99z0        | S2 L       |
+| gclk_11 | x37y99z2   | B    | PH1_PHY_PLL.clkc[3]         | x81y79z0       | S1 R       |
+| gclk_12 | x37y99z5   | B    | PH1_PHY_CONFIG_V2.cwc_tck_o | x5y79z0        | S1 L       |
+| gclk_13 | x37y99z17  | T    | PH1_PHY_PLL.clkc[2]         | x0y119z0       | S2 L       |
+| gclk_14 | x37y99z8   | B    | PH1_PHY_LSLICE.oqa          | x1y81z7        | S2 L       |
+| gclk_15 | x37y99z18  | T    | PH1_PHY_PCIE_V3.core_clk    | x51y120z0      | S3 R       |
+|         |            |      |                             |                |            |
+| sclk_1  | x37y99z2   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_2  | x37y139z2  | S3 L | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_3  | x37y19z14  | S0 R | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_4  | x37y59z14  | S1 R | PH1_PHY_GCLK_V2.clkout      | x37y99z1       | S2 L       |
+| sclk_5  | x37y99z12  | S2 R | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_6  | x37y139z13 | S3 R | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_7  | x37y19z0   | S0 L | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_8  | x37y59z15  | S1 R | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_9  | x37y59z0   | S1 L | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_10 | x37y139z12 | S3 R | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_11 | x37y99z13  | S2 R | PH1_PHY_GCLK_V2.clkout      | x37y99z1       | S2 L       |
+| sclk_12 | x37y19z15  | S0 R | PH1_PHY_GCLK_V2.clkout      | x37y99z2       | S2 L       |
+| sclk_13 | x37y59z1   | S1 L | PH1_PHY_GCLK_V2.clkout      | x37y99z20      | S2 L       |
+| sclk_14 | x37y59z16  | S1 R | PH1_PHY_GCLK_V2.clkout      | x37y99z2       | S2 L       |
+| sclk_15 | x37y59z2   | S1 L | PH1_PHY_GCLK_V2.clkout      | x37y99z1       | S2 L       |
+| sclk_16 | x37y19z16  | S0 R | PH1_PHY_GCLK_V2.clkout      | x37y99z1       | S2 L       |
+| sclk_17 | x37y139z1  | S3 L | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_18 | x37y19z1   | S0 L | PH1_PHY_GCLK_V2.clkout      | x37y99z20      | S2 L       |
+| sclk_19 | x37y99z3   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z1       | S2 L       |
+| sclk_20 | x37y99z4   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z5       | S2 L       |
+| sclk_21 | x37y139z4  | S3 L | PH1_PHY_GCLK_V2.clkout      | x37y99z3       | S2 L       |
+| sclk_22 | x37y99z5   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z17      | S2 L       |
+| sclk_23 | x37y139z5  | S3 L | PH1_PHY_GCLK_V2.clkout      | x37y99z5       | S2 L       |
+| sclk_24 | x37y59z3   | S1 L | PH1_PHY_GCLK_V2.clkout      | x37y99z3       | S2 L       |
+| sclk_25 | x37y59z4   | S1 L | PH1_PHY_GCLK_V2.clkout      | x37y99z17      | S2 L       |
+| sclk_26 | x37y59z17  | S1 R | PH1_PHY_GCLK_V2.clkout      | x37y99z4       | S2 L       |
+| sclk_27 | x37y99z6   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z3       | S2 L       |
+| sclk_28 | x37y139z6  | S3 L | PH1_PHY_GCLK_V2.clkout      | x37y99z18      | S2 L       |
+| sclk_29 | x37y59z18  | S1 R | PH1_PHY_GCLK_V2.clkout      | x37y99z3       | S2 L       |
+| sclk_30 | x37y99z7   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z8       | S2 L       |
+| sclk_31 | x37y59z12  | S1 R | PH1_PHY_GCLK_V2.clkout      | x37y99z7       | S2 L       |
+| sclk_32 | x37y19z2   | S0 L | PH1_PHY_GCLK_V2.clkout      | x37y99z19      | S2 L       |
+| sclk_33 | x37y59z19  | S1 R | PH1_PHY_GCLK_V2.clkout      | x37y99z6       | S2 L       |
+| sclk_34 | x37y139z14 | S3 R | PH1_PHY_GCLK_V2.clkout      | x37y99z3       | S2 L       |
+| sclk_35 | x37y59z5   | S1 L | PH1_PHY_GCLK_V2.clkout      | x37y99z8       | S2 L       |
+| sclk_36 | x37y59z6   | S1 L | PH1_PHY_GCLK_V2.clkout      | x37y99z21      | S2 L       |
+| sclk_37 | x37y99z8   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z21      | S2 L       |
+| sclk_38 | x37y99z1   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z19      | S2 L       |
+| sclk_39 | x37y99z9   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z20      | S2 L       |
+| sclk_40 | x37y139z0  | S3 L | PH1_PHY_PCIE_V3.core_clk    | x51y120z0      | S3 R       |
+| sclk_41 | x37y139z3  | S3 L | PH1_PHY_GCLK_V2.clkout      | x37y99z16      | S2 L       |
+| sclk_42 | x37y19z12  | S0 R | PH1_PHY_GCLK_V2.clkout      | x37y99z6       | S2 L       |
+| sclk_43 | x37y19z13  | S0 R | PH1_PHY_GCLK_V2.clkout      | x37y99z4       | S2 L       |
+| sclk_44 | x37y59z13  | S1 R | PH1_PHY_GCLK_V2.clkout      | x37y99z0       | S2 L       |
+| sclk_45 | x37y99z0   | S2 L | PH1_PHY_GCLK_V2.clkout      | x37y99z7       | S2 L       |
+|         |            |      |                             |                |            |
+| lclk_1  | x0y99z0    | S2 L | PH1_PHY_PAD.di              | x0y97z2        | S2 L       |
+| lclk_2  | x81y59z0   | S1 R | PH1_PHY_PLL.clkc[1]         | x81y79z0       | S1 R       |
+| lclk_3  | x81y59z1   | S1 R | PH1_PHY_PLL.clkc[2]         | x81y79z0       | S1 R       |
+| lclk_4  | x0y99z1    | S2 L | PH1_PHY_PAD.di              | x0y97z2        | S2 L       |
+|         |            |      |                             |                |            |
+| lclk_2  | x81y59z0   | S1 R | PH1_PHY_PLL.clkc[1]         | x81y79z0       | S1 R       |
+| lclk_3  | x81y59z1   | S1 R | PH1_PHY_PLL.clkc[2]         | x81y79z0       | S1 R       |
++---------+------------+------+-----------------------------+----------------+------------+
+
+3.Clock Buffer Fanout Stat.
++---------+----------------------+--------------------------+----------------------------+-------------------------+---------------------+---------------------------+
+| Index   | FanoutGroup1         | FanoutGroup2             | FanoutGroup3               | FanoutGroup4            | FanoutGroup5        | FanoutGroup6              |
++---------+----------------------+--------------------------+----------------------------+-------------------------+---------------------+---------------------------+
+| gclk_1  | PH1_PHY_SCLK_V2(11)  |                          |                            |                         |                     |                           |
+| gclk_2  | PH1_PHY_SCLK_V2(5)   |                          |                            |                         |                     |                           |
+| gclk_3  | PH1_PHY_SCLK_V2(5)   |                          |                            |                         |                     |                           |
+| gclk_4  | PH1_PHY_SCLK_V2(3)   |                          |                            |                         |                     |                           |
+| gclk_5  | PH1_PHY_SCLK_V2(2)   |                          |                            |                         |                     |                           |
+| gclk_6  | PH1_PHY_SCLK_V2(2)   |                          |                            |                         |                     |                           |
+| gclk_7  | PH1_PHY_GCLK_V2(1)   | PH1_PHY_SCLK_V2(1)       |                            |                         |                     |                           |
+| gclk_8  | PH1_PHY_SCLK_V2(2)   |                          |                            |                         |                     |                           |
+| gclk_9  | PH1_PHY_SCLK_V2(2)   |                          |                            |                         |                     |                           |
+| gclk_10 | PH1_PHY_SCLK_V2(2)   |                          |                            |                         |                     |                           |
+| gclk_11 | PH1_PHY_SCLK_V2(2)   |                          |                            |                         |                     |                           |
+| gclk_12 | PH1_PHY_SCLK_V2(2)   |                          |                            |                         |                     |                           |
+| gclk_13 | PH1_PHY_SCLK_V2(2)   |                          |                            |                         |                     |                           |
+| gclk_14 | PH1_PHY_SCLK_V2(2)   |                          |                            |                         |                     |                           |
+| gclk_15 | PH1_PHY_SCLK_V2(1)   |                          |                            |                         |                     |                           |
+|         |                      |                          |                            |                         |                     |                           |
+| sclk_1  | PH1_PHY_LSLICE(4173) | PH1_PHY_MSLICE(292)      | PH1_PHY_ERAM(87)           | PH1_PHY_DRAMHARDCON(38) | PH1_PHY_DSPSIOU(20) |                           |
+| sclk_2  | PH1_PHY_LSLICE(4075) | PH1_PHY_MSLICE(112)      | PH1_PHY_ERAM(86)           | PH1_PHY_DRAMHARDCON(14) |                     |                           |
+| sclk_3  | PH1_PHY_LSLICE(3599) | PH1_PHY_MSLICE(96)       | PH1_PHY_SHIFTERHARDCON(12) | PH1_PHY_ERAM(10)        | PH1_PHY_DSPSIOU(5)  |                           |
+| sclk_4  | PH1_PHY_LSLICE(3325) | PH1_PHY_MSLICE(132)      | PH1_PHY_DRAMHARDCON(39)    | PH1_PHY_ERAM(17)        | PH1_PHY_DDR_BANK(5) | PH1_PHY_DDR4_CAL(1)       |
+| sclk_5  | PH1_PHY_LSLICE(2274) | PH1_PHY_DRAMHARDCON(245) | PH1_PHY_MSLICE(32)         | PH1_PHY_ERAM(23)        | PH1_PHY_DSPSIOU(18) | PH1_PHY_SHIFTERHARDCON(1) |
+| sclk_6  | PH1_PHY_LSLICE(1259) | PH1_PHY_DRAMHARDCON(159) | PH1_PHY_MSLICE(22)         |                         |                     |                           |
+| sclk_7  | PH1_PHY_LSLICE(1050) | PH1_PHY_ERAM(81)         | PH1_PHY_DSPSIOU(3)         |                         |                     |                           |
+| sclk_8  | PH1_PHY_LSLICE(957)  | PH1_PHY_ERAM(21)         | PH1_PHY_DSPSIOU(13)        | PH1_PHY_DRAMHARDCON(2)  |                     |                           |
+| sclk_9  | PH1_PHY_LSLICE(877)  | PH1_PHY_ERAM(82)         | PH1_PHY_DSPSIOU(13)        |                         |                     |                           |
+| sclk_10 | PH1_PHY_LSLICE(760)  |                          |                            |                         |                     |                           |
+| sclk_11 | PH1_PHY_LSLICE(683)  | PH1_PHY_ERAM(15)         |                            |                         |                     |                           |
+| sclk_12 | PH1_PHY_LSLICE(361)  | PH1_PHY_MSLICE(23)       | PH1_PHY_ERAM(14)           | PH1_PHY_DRAMHARDCON(4)  |                     |                           |
+| sclk_13 | PH1_PHY_LSLICE(373)  |                          |                            |                         |                     |                           |
+| sclk_14 | PH1_PHY_LSLICE(315)  | PH1_PHY_DRAMHARDCON(16)  | PH1_PHY_DDR_BANK(5)        | PH1_PHY_ERAM(2)         | PH1_PHY_DDR4_CAL(1) |                           |
+| sclk_15 | PH1_PHY_LSLICE(243)  | PH1_PHY_ERAM(26)         |                            |                         |                     |                           |
+| sclk_16 | PH1_PHY_LSLICE(219)  |                          |                            |                         |                     |                           |
+| sclk_17 | PH1_PHY_LSLICE(185)  | PH1_PHY_ERAM(4)          |                            |                         |                     |                           |
+| sclk_18 | PH1_PHY_LSLICE(169)  | PH1_PHY_ERAM(17)         |                            |                         |                     |                           |
+| sclk_19 | PH1_PHY_LSLICE(151)  | PH1_PHY_ERAM(8)          |                            |                         |                     |                           |
+| sclk_20 | PH1_PHY_LSLICE(144)  |                          |                            |                         |                     |                           |
+| sclk_21 | PH1_PHY_LSLICE(75)   | PH1_PHY_PLL(1)           |                            |                         |                     |                           |
+| sclk_22 | PH1_PHY_LSLICE(74)   |                          |                            |                         |                     |                           |
+| sclk_23 | PH1_PHY_LSLICE(42)   |                          |                            |                         |                     |                           |
+| sclk_24 | PH1_PHY_LSLICE(37)   |                          |                            |                         |                     |                           |
+| sclk_25 | PH1_PHY_LSLICE(23)   |                          |                            |                         |                     |                           |
+| sclk_26 | PH1_PHY_LSLICE(23)   |                          |                            |                         |                     |                           |
+| sclk_27 | PH1_PHY_LSLICE(23)   |                          |                            |                         |                     |                           |
+| sclk_28 | PH1_PHY_LSLICE(21)   |                          |                            |                         |                     |                           |
+| sclk_29 | PH1_PHY_LSLICE(13)   |                          |                            |                         |                     |                           |
+| sclk_30 | PH1_PHY_LSLICE(11)   |                          |                            |                         |                     |                           |
+| sclk_31 | PH1_PHY_LSLICE(8)    | PH1_PHY_PLL(1)           |                            |                         |                     |                           |
+| sclk_32 | PH1_PHY_LSLICE(8)    |                          |                            |                         |                     |                           |
+| sclk_33 | PH1_PHY_LSLICE(8)    |                          |                            |                         |                     |                           |
+| sclk_34 | PH1_PHY_LSLICE(6)    | PH1_PHY_PCIE_V3(2)       |                            |                         |                     |                           |
+| sclk_35 | PH1_PHY_LSLICE(6)    |                          |                            |                         |                     |                           |
+| sclk_36 | PH1_PHY_LSLICE(6)    |                          |                            |                         |                     |                           |
+| sclk_37 | PH1_PHY_PAD(4)       | PH1_PHY_LSLICE(2)        |                            |                         |                     |                           |
+| sclk_38 | PH1_PHY_PLL(1)       | PH1_PHY_LSLICE(1)        |                            |                         |                     |                           |
+| sclk_39 | PH1_PHY_LSLICE(2)    |                          |                            |                         |                     |                           |
+| sclk_40 | PH1_PHY_PLL(1)       |                          |                            |                         |                     |                           |
+| sclk_41 | PH1_PHY_PLL(1)       |                          |                            |                         |                     |                           |
+| sclk_42 | PH1_PHY_PLL(1)       |                          |                            |                         |                     |                           |
+| sclk_43 | PH1_PHY_PLL(1)       |                          |                            |                         |                     |                           |
+| sclk_44 | PH1_PHY_PLL(1)       |                          |                            |                         |                     |                           |
+| sclk_45 | PH1_PHY_PLL(1)       |                          |                            |                         |                     |                           |
+|         |                      |                          |                            |                         |                     |                           |
+| lclk_1  | PH1_PHY_PAD(4)       |                          |                            |                         |                     |                           |
+| lclk_2  | PH1_PHY_HP_IOCLK(1)  |                          |                            |                         |                     |                           |
+| lclk_3  | PH1_PHY_HP_IOCLK(1)  |                          |                            |                         |                     |                           |
+| lclk_4  |                      |                          |                            |                         |                     |                           |
+|         |                      |                          |                            |                         |                     |                           |
+| lclk_2  | PH1_PHY_HP_IOCLK(1)  |                          |                            |                         |                     |                           |
+| lclk_3  | PH1_PHY_HP_IOCLK(1)  |                          |                            |                         |                     |                           |
++---------+----------------------+--------------------------+----------------------------+-------------------------+---------------------+---------------------------+
+
+
+-------------------------------------------------------------------------------------------
+----------------------------------------C. IP Stat.----------------------------------------
+-------------------------------------------------------------------------------------------
+
+1.IP List.
++-------+------+----------+------+----------+
+| Index | Bank | Location | Side | Instance |
++-------+------+----------+------+----------+
+
+2.IP Clock Topo Stat.
++--------+--------+-------+----+--------+--------+---------+
+| Driver | Buffer | Inpin | IP | Outpin | Buffer | Fanouts |
++--------+--------+-------+----+--------+--------+---------+

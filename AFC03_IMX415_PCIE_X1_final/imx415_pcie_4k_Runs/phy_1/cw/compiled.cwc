@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- HMAC is: 1e54312103811ddef02d46c10048f9f5235902693f7d0a93d45308a15237a205 -->
+<chipwatcher version="3.040000" project_name="imx415_pcie_4k" chip_name="PH1A90SEG324">
+	<watcher_nodes>
+		<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/client0_tlp_dv" clock="u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb" inst="auto_created_cwc1" type="MARK_DEBUG_PROBE" is_enabled="yes" const="false" trig="enable" data="enable"/>
+		<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/client0_tlp_eot" clock="u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb" inst="auto_created_cwc1" type="MARK_DEBUG_PROBE" is_enabled="yes" const="false" trig="enable" data="enable"/>
+		<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/client0_tlp_hv" clock="u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb" inst="auto_created_cwc1" type="MARK_DEBUG_PROBE" is_enabled="yes" const="false" trig="enable" data="enable"/>
+		<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/fifo_rq_empty_flag" clock="u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb" inst="auto_created_cwc1" type="MARK_DEBUG_PROBE" is_enabled="yes" const="false" trig="enable" data="enable"/>
+		<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/xadm_client0_halt" clock="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_pcie_basic_top/u_al_pcie_ip_bypass_pipeline/user_clk" inst="auto_created_cwc2" type="MARK_DEBUG_PROBE" is_enabled="yes" const="false" trig="enable" data="enable"/>
+	</watcher_nodes>
+	<instance name="auto_created_cwc1" id="0" ipgen="false" inst_enable="true">
+		<clock clk_name="u_sgdma_subsys/u_sgdma_ip/u_tlp_reorder/u_rdinfo_sfifo_60x16/ram_inst/clkb" clk_peroid="8ns"/>
+		<config bram_name="auto_created_cwc1/wrapper_cwc_top/U_cwc_ram" debughub_name="" input_pipe_num="0" output_pipe_num="0" pwr_on_trigger="disable" capture_mode="disable" sample_depth="1024"/>
+		<signal_vec>
+			<watcher_nodes>
+				<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/client0_tlp_dv" cond="any" capture_cond="any"/>
+				<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/client0_tlp_eot" cond="any" capture_cond="any"/>
+				<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/client0_tlp_hv" cond="any" capture_cond="any"/>
+				<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/fifo_rq_empty_flag" cond="any" capture_cond="any"/>
+			</watcher_nodes>
+		</signal_vec>
+		<trigger name="auto_created_cwc1_trigger" position="127" window_num="1" window_depth="1024">
+			<condition level="1" enabled="yes" type="basic_and" capture_type="basic_and"/>
+		</trigger>
+		<logic_eram name="auto_created_cwc1/wrapper_cwc_top/U_cwc_ram" width="4" depth="1024">
+			<phy_eram name="auto_created_cwc1/wrapper_cwc_top/U_cwc_ram/ramread0_syn_9" wid="0X0000004b" rid="0X0000004b" model_type="AL_PHY_ERAM" width_a="5" width_b="5" debuggable="enable" initialized="enable" width="4" depth="1024" address_offset="0" data_offset="0" address_step="1" num_section="1" section_size="4" width_per_section="4" bytes_in_per_section="1" working_mode_depth="4096" working_mode_width="5" working_mode_ecc="disable" working_mode_num_byte="1" working_mode_super_wide="disable"/>
+		</logic_eram>
+	</instance>
+	<instance name="auto_created_cwc2" id="1" ipgen="false" inst_enable="true">
+		<clock clk_name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/PH1A_PCIE_CORE_BLK$u_al_pcie_ip/u_al_pcie_ip_ph1_pcie_basic_top/u_al_pcie_ip_bypass_pipeline/user_clk" clk_peroid="8ns"/>
+		<config bram_name="auto_created_cwc2/wrapper_cwc_top/U_cwc_ram" debughub_name="" input_pipe_num="0" output_pipe_num="0" pwr_on_trigger="disable" capture_mode="disable" sample_depth="1024"/>
+		<signal_vec>
+			<watcher_nodes>
+				<net name="u_sgdma_subsys/DEVICE_IS_PH1A$u_ph1a_if_ep/u_pcie_tx_client02rq/xadm_client0_halt" cond="any" capture_cond="any"/>
+			</watcher_nodes>
+		</signal_vec>
+		<trigger name="auto_created_cwc2_trigger" position="127" window_num="1" window_depth="1024">
+			<condition level="1" enabled="yes" type="basic_and" capture_type="basic_and"/>
+		</trigger>
+		<logic_eram name="auto_created_cwc2/wrapper_cwc_top/U_cwc_ram" width="1" depth="1024">
+			<phy_eram name="auto_created_cwc2/wrapper_cwc_top/U_cwc_ram/ramread0_syn_9" wid="0X00000064" rid="0X00000064" model_type="AL_PHY_ERAM" width_a="1" width_b="1" debuggable="enable" initialized="enable" width="1" depth="1024" address_offset="0" data_offset="0" address_step="1" num_section="1" section_size="1" width_per_section="1" bytes_in_per_section="1" working_mode_depth="16384" working_mode_width="1" working_mode_ecc="disable" working_mode_num_byte="1" working_mode_super_wide="disable"/>
+		</logic_eram>
+	</instance>
+</chipwatcher>

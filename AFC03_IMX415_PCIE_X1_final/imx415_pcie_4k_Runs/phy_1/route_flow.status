@@ -1,0 +1,24 @@
+Location         : D:\FPGA\AFC03_IMX415_PCIE_X1_test\IMX415_PCIE_X1\imx415_pcie_4k_Runs\phy_1
+Running with     : Tang Dynasty Release_2026.1_SP2
+                   Copyright (c) 2012-2026 Anlogic Inc.
+Top Model        : imx415_pcie_top
+Device           : PH1A90SEG324
+Speed            : 2
+
+Timing Mode      : final
+Setup            : WNS   269ps  TNS        0ps  NUM_FEPS     0
+Hold             : WNS    20ps  TNS        0ps  NUM_FEPS     0
+
+Flow Statistics  :
+---------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time   |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+---------------------------------------------------------------------------------------------------
+      place      |    1     |  6m26s(61%)  |   2370(87%)   |       4242        |       4242        
+      route      |    1     |  3m27s(33%)  |   303(11%)    |       6539        |       6547        
+    fix_hold     |    1     |   27s(4%)    |    31(1%)     |       6544        |       6547        
+  import_device  |    1     |    4s(0%)    |     2(0%)     |       1112        |       1112        
+    import_db    |    4     |    3s(0%)    |     1(0%)     |       2779        |       3110        
+      pack       |    1     |    0s(0%)    |     0(0%)     |       3270        |       3270        
+---------------------------------------------------------------------------------------------------
+      total      |    9     |    10m27s    |     2707      |       6544        |       6547        
+---------------------------------------------------------------------------------------------------

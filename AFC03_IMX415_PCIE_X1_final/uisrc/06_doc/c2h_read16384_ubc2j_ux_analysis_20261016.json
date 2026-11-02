@@ -1,0 +1,56 @@
+{
+  "input_archive": "C:\\Users\\Skeletal-Wings\\Desktop\\read16384.ubc2j_ux.tar.gz",
+  "capture_sha256": "b1223ef0905bcca7d996e6a6658a9de5652d985ce98bf10b349ea58b82bd88d1",
+  "capture_size": 33562896,
+  "read_size": 16384,
+  "reads": 2049,
+  "full_reads": 2046,
+  "short_reads": [
+    [
+      724,
+      2541518811534,
+      11845632,
+      11202
+    ],
+    [
+      725,
+      2541518999919,
+      11856834,
+      15904
+    ],
+    [
+      1447,
+      2541638362259,
+      23685602,
+      14126
+    ]
+  ],
+  "frame1": {
+    "metadata": {
+      "width": 1920,
+      "height": 1080,
+      "frame_id": 1,
+      "raw_len": 6220800,
+      "comp_len": 11856798,
+      "tokens": 5928399,
+      "crc32": 1815328086
+    },
+    "decoded_bytes": 6220800,
+    "decoded_sha256": "2000cbf76fb30699df2978025a494e4a8bee2e4091e88af34a1fbb6533a91c7d",
+    "crc_and_geometry_valid": true
+  },
+  "frame2": {
+    "received_start": 11856834,
+    "footer_offset": 23699708,
+    "declared_compressed_bytes": 11843338,
+    "expected_frame_span_bytes": 11843374,
+    "observed_frame_span_bytes": 11842894,
+    "deficit_bytes": 480,
+    "header_absent": true,
+    "crc_valid": false
+  },
+  "frame3_header_offset": 23699728,
+  "frame3_id": 9,
+  "new_kernel_log_lines": 0,
+  "next_test": "4096-byte aligned read using same bit and driver; tests single-page request completion at EOP tail"
+}

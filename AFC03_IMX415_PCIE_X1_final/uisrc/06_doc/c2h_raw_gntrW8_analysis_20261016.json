@@ -1,0 +1,92 @@
+{
+  "input_archive": "C:\\Users\\Skeletal-Wings\\Desktop\\raw.gntrW8.tar.gz",
+  "capture_sha256": "0d864fffcc8161dba5124b69ab417ffa00a39bc3b0f6c690ff9809047a16833a",
+  "capture_bytes": 33562382,
+  "reads": 2111,
+  "first_read_length": 16384,
+  "duration_between_read_completions_s": 0.360595789,
+  "header_offsets": [
+    0
+  ],
+  "footer_candidates": [
+    {
+      "offset": 11563234,
+      "read_number": 728,
+      "read_start": 11552704,
+      "read_length": 10550,
+      "footer_raw_bytes": 6220800,
+      "footer_compressed_bytes": 11922146,
+      "footer_tokens": 5961073,
+      "footer_crc32": "0x325ccaf1",
+      "expected_frame_bytes": 11922182,
+      "observed_span_bytes": 11563254,
+      "span_deficit_bytes": 358928,
+      "header_present": true,
+      "crc_valid_at_declared_payload_start": false
+    },
+    {
+      "offset": 23163290,
+      "read_number": 1458,
+      "read_start": 23155526,
+      "read_length": 7784,
+      "footer_raw_bytes": 6220800,
+      "footer_compressed_bytes": 11952180,
+      "footer_tokens": 5976090,
+      "footer_crc32": "0x1f51ea55",
+      "expected_frame_bytes": 11952216,
+      "observed_span_bytes": 11600056,
+      "span_deficit_bytes": 352160,
+      "header_present": false,
+      "crc_valid_at_declared_payload_start": false
+    }
+  ],
+  "most_common_read_lengths": [
+    [
+      15888,
+      201
+    ],
+    [
+      15936,
+      179
+    ],
+    [
+      15872,
+      179
+    ],
+    [
+      15920,
+      176
+    ],
+    [
+      15904,
+      175
+    ],
+    [
+      15856,
+      145
+    ],
+    [
+      15840,
+      136
+    ],
+    [
+      15952,
+      133
+    ],
+    [
+      15968,
+      124
+    ],
+    [
+      15824,
+      109
+    ]
+  ],
+  "observations": [
+    "footer 1 has correct RGB24 raw size but payload byte deficit 358928, so receiver correctly rejects it",
+    "only first frame header appears in 32 MiB capture; later expected headers are absent",
+    "short read alone is legal; cumulative footer mismatch proves stream inconsistency",
+    "EOP early-stop/requeue and completion length accounting are investigation hypotheses; not yet proven root cause",
+    "next experiment: same bit and driver, mmap aligned read_size=16384 instead of 65536"
+  ]
+}

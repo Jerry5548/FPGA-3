@@ -1,0 +1,38 @@
+{
+  "version": "0x56440023",
+  "status": "RTL/behavioral tests/synthesis/place/route/bitgen completed; timing NOT closed; hardware NOT verified; DEBUG ONLY",
+  "sources": {
+    "uisrc/01_rtl/frame_async_fifo.v": "a2110624f5572a42a2f48889e5c903385e651e91d5f7e1292eaaebe5d5446111",
+    "uisrc/01_rtl/ddr_frame_store_axi.v": "679c70a338a64f78712b04773b851bdfc42b4735271b78f0213d9603adb21f87",
+    "uisrc/01_rtl/ddr_camera_frame_path.v": "8db97824fc7a55f8558be1ad55c10b087bc0a4cbb20ca888b11c4a6c51d62f14",
+    "uisrc/01_rtl/pcie_ddr_camera.v": "1268321b8c402927ad02caabce369276424e24fe45345d3075960b1cd649fa35",
+    "uisrc/01_rtl/rgb128_byte_stream.v": "d2f4289228b20b022c27dfdb481439c3158605ec4b87a6b7e5d3fadfaf48c3c1",
+    "uisrc/01_rtl/lz77_rgb_c2h_path.v": "6e73c7797adac3d40c25601197c07678c78c705da1762f50cd84f598b5f69ef8",
+    "uisrc/01_rtl/lz77_repeat_encoder.v": "332a8995e06e10d46a3f0035a4fab34ca81c22ab42a9c32932ceb9a97a802f75",
+    "uisrc/01_rtl/lz77_frame_formatter.v": "4c0eadcdb1f0e46634b047289e2999bbc75563e9e47ca7563689757fbe0faa97",
+    "uisrc/01_rtl/lz77_c2h_word_packer.v": "1cf6ebf7e52ad9db8859ac89c722e7a2bdbf164a6bb460657fef511f1fefb1a0",
+    "uisrc/01_rtl/imx415_pcie_top.v": "97a216056ea1a1642d306a4996e491e5482b5c816285697c15a2e84f47e799a4",
+    "uisrc/01_rtl/param_imx415.v": "6d9575d75b34930f23f1572a390d5b2cf12393c734a2d7a77c60db8e1b57b6a2",
+    "uisrc/03_ip/vid_pipeline/cam_video_source.v": "256bbcc2f408d562bd2d7a47c7a4461280d71bb36c17aa8f765b042a6faf2540",
+    "uisrc/03_ip/vid_pipeline/sync_fifo_130.v": "7ce81e8950c7f62c08e4b96f968c068c1615d042ddd0703e60045a729af94d8b",
+    "uisrc/04_pin/imx415_pcie.sdc": "495d4f2da0c95a31d8b7317be655252a2e8aef7a9bda6c633f1ebb31d1d322e0",
+    "uisrc/04_pin/imx415_pcie.adc": "b9f33eeca3e811a0094ee3c3c1ef3795b31f04ac13f92474ae3d1c3c369b007d",
+    "imx415_pcie_4k.al": "2d3d28e876b40a9dc57784c0947e87a83f13ed51165a927006d4e10f47c39773",
+    "uisrc/03_ip/al_ip/ui_ddr/ddr_ip.adc": "1d5d2886f07b0744f7505a8e77cdf25db04d9da0d7ee0103a6165b24eec7f5dd",
+    "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.adc": "1d5d2886f07b0744f7505a8e77cdf25db04d9da0d7ee0103a6165b24eec7f5dd",
+    "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.ipc": "fabf71d133a4aab4000e670a9dcc9a2d2924947e90e8f63e77c40d9ea7edc14b",
+    "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.sdc": "3b0689e56fb78f9bf8bf57ec941864fd75b058f269bc7b15304c946442251342",
+    "uisrc/03_ip/al_ip/ui_ddr/ui_ddr.sv": "4fc55966f49cd8af746f8202d1c0fb4ddf608eb11990f19a2f9c081581cf2d68",
+    "uisrc/03_ip/al_ip/ui_ddr/ui_ddr_cfg_rom.mif": "a95ad6d63736e6f283e1241bccbae9fe2db2c34d956ff85977a9fd98184f36c1",
+    "uisrc/03_ip/al_ip/ui_ddr/ui_ddr_cfg_rom.txt": "07d7d978421e5a56cb96e603d005500c628525ee37393e45b226879020a57392",
+    "uisrc/03_ip/al_ip/ui_ddr/ui_ddr_mcu_rom.txt": "cd913458ff92970525649254b69f4f8123ff968ab9a9172018d1adbf2f73b2b7"
+  },
+  "timing": {
+    "setup_wns_ns": -23.238,
+    "setup_tns_ns": -14053.692,
+    "hold_wns_ns": -1.175,
+    "hold_tns_ns": -9.063
+  },
+  "release_directory": "imx415_pcie_4k_Runs/debug_release_ddr_v23_20261006",
+  "verified_source_count": 24
+}

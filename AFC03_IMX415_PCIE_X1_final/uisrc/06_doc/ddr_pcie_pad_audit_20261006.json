@@ -1,0 +1,7 @@
+{
+  "ddr_pins": 48,
+  "pcie_project_pins_checked": 14,
+  "pad_clashes": {},
+  "scope": "Preliminary named pad assignment audit only; not DDR/PCIe implementation signoff",
+  "shared_ref": "T13 is already mipi_ref_clk_p in PCIe; MIPI DDR uses I_ddr_clk at T13. Reuse the existing port, do not assign a second top-level input to this pad."
+}

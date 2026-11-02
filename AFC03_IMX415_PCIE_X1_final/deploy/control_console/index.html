@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+<title>慧眼哨兵 · FPGA 控制台</title>
+<style>
+:root{--bg:#08111f;--panel:#0e1a2b;--line:#20324b;--muted:#8192aa;--text:#e7eef8;--cyan:#49d8e8;--green:#43d39e;--amber:#f2b84b;--red:#ef6c73;--shadow:0 18px 48px #02081355}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 47% -10%,#142844 0,transparent 46%),var(--bg);color:var(--text);font:14px/1.45 "Segoe UI","Microsoft YaHei",sans-serif;min-height:100vh}.app{display:grid;grid-template-columns:228px minmax(0,1fr);min-height:100vh}.side{border-right:1px solid var(--line);background:#0a1422e8;padding:24px 16px;display:flex;flex-direction:column;gap:30px}.brand{display:flex;align-items:center;gap:12px;padding:0 8px}.brand-mark{width:38px;height:38px;display:grid;place-items:center;border:1px solid #2b6079;border-radius:12px;color:var(--cyan);background:linear-gradient(145deg,#17415b,#10243a);font-size:20px}.brand strong{display:block;font-size:15px;letter-spacing:.08em}.brand small,.eyebrow{color:var(--muted);font-size:11px;letter-spacing:.12em}.nav-title{padding:0 12px;color:#657993;font-size:10px;letter-spacing:.15em}.nav{display:grid;gap:6px;margin-top:-22px}.nav a{color:#92a3bb;text-decoration:none;padding:11px 12px;border-radius:9px;display:flex;align-items:center;gap:11px}.nav a.active{color:#e9fbff;background:linear-gradient(90deg,#143449,#13283b);box-shadow:inset 2px 0 var(--cyan)}.nav .ico{width:18px;text-align:center;color:var(--cyan);font-size:16px}.side-foot{margin-top:auto;border:1px solid var(--line);border-radius:12px;padding:13px;background:#0c1928}.side-foot .led{display:inline-block;width:7px;height:7px;background:var(--amber);border-radius:50%;margin-right:7px}.side-foot small{display:block;color:var(--muted);margin-top:8px;font-size:11px}.main{min-width:0;padding:22px 28px 28px}.top{height:52px;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.crumb{color:var(--muted)}.crumb b{color:var(--text);font-weight:500}.top-right{display:flex;align-items:center;gap:10px}.chip{border:1px solid var(--line);background:#0d1a2a;border-radius:99px;padding:7px 11px;font-size:12px;color:#a9bad0}.chip .led{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-right:7px}.top-user{width:32px;height:32px;display:grid;place-items:center;border:1px solid #285274;border-radius:50%;color:var(--cyan);background:#112b40}.hero{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:18px}.hero h1{font-size:25px;letter-spacing:.02em;margin:4px 0 3px}.hero p{margin:0;color:var(--muted)}.hero-actions{display:flex;gap:9px}.grid{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(310px,.88fr);gap:16px;align-items:start}.stack{display:grid;gap:16px}.card{background:linear-gradient(155deg,#111f32,#0d1929 74%);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}.card-head{display:flex;justify-content:space-between;align-items:center;padding:15px 17px;border-bottom:1px solid #1d2c42}.card-head h2{font-size:14px;margin:0;font-weight:600}.card-head p{margin:3px 0 0;font-size:11px;color:var(--muted)}.badge{font-size:10px;color:#8ea1ba;border:1px solid #2a3d56;padding:4px 8px;border-radius:99px;letter-spacing:.08em}.panel-body{padding:16px 17px}.placeholder{height:300px;position:relative;display:grid;place-items:center;background:radial-gradient(ellipse at center,#11263b 0,#091321 64%);border:1px dashed #2a405b;border-radius:10px;overflow:hidden}.placeholder:before,.placeholder:after{content:"";position:absolute;background:#20354c}.placeholder:before{height:1px;width:75%;top:50%;left:12.5%;opacity:.45}.placeholder:after{width:1px;height:70%;left:50%;top:15%;opacity:.45}.cross{position:absolute;width:38px;height:38px;border:1px solid #34506c;border-radius:50%;opacity:.7}.cross:before,.cross:after{content:"";position:absolute;background:#34506c}.cross:before{height:1px;left:-8px;right:-8px;top:18px}.cross:after{width:1px;top:-8px;bottom:-8px;left:18px}.placeholder-content{position:relative;z-index:1;text-align:center;padding:18px 22px;background:#091421eF;border:1px solid #1c3046;border-radius:12px}.placeholder-icon{font-size:24px;color:#52718f;margin-bottom:7px}.placeholder-content strong{display:block;font-size:13px;font-weight:500}.placeholder-content p{margin:5px 0 0;color:var(--muted);font-size:11px}.preview-meta{display:flex;justify-content:space-between;gap:8px;margin-top:12px;color:var(--muted);font-size:11px}.preview-meta b{font-weight:500;color:#cad7e7}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.metric{background:#0a1625;border:1px solid #1c2b40;padding:11px 12px;border-radius:9px}.metric span{display:block;color:var(--muted);font-size:10px}.metric strong{display:block;margin-top:5px;font-size:15px;font-weight:600}.metric small{color:#7589a2;font-size:10px}.section-label{display:flex;align-items:center;gap:9px;margin:0 0 12px;color:#dbe6f4;font-weight:600;font-size:12px}.section-label:before{content:"";width:3px;height:13px;border-radius:3px;background:var(--cyan)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{color:#8fa1b8;font-size:11px}.field input,.field select{width:100%;height:38px;color:#dce8f7;background:#091523;border:1px solid #25364d;border-radius:8px;padding:0 10px;outline:none}.field input:focus,.field select:focus{border-color:#358ca1;box-shadow:0 0 0 2px #39cde51c}.toggle{display:flex;align-items:center;gap:9px;color:#cbd8e8;font-size:12px}.toggle input{accent-color:#35bfd3;width:15px;height:15px}.divider{height:1px;background:#1c2b40;margin:15px 0}.btn{border:1px solid #2a4059;background:#132238;color:#cfdaea;border-radius:8px;padding:9px 12px;font:inherit;font-size:12px;cursor:pointer;transition:.15s}.btn:hover{border-color:#4686a3;background:#173047}.btn:disabled{opacity:.45;cursor:wait}.btn.primary{color:#03141b;background:linear-gradient(120deg,#54d8e4,#46b8df);border-color:transparent;font-weight:700}.btn.stop{background:#301b27;border-color:#643244;color:#ffb4b6}.btn.good{background:#122d29;border-color:#286354;color:#9af0d3}.buttons{display:flex;flex-wrap:wrap;gap:8px}.buttons .btn{flex:1;min-width:100px}.statusline{display:flex;align-items:center;gap:8px;font-size:12px;color:#9cafc5}.statusline .dot{width:8px;height:8px;border-radius:50%;background:var(--amber)}.statusline.online .dot{background:var(--green);box-shadow:0 0 10px #43d39e66}.statusline.error .dot{background:var(--red)}.log{height:174px;overflow:auto;background:#07111d;border:1px solid #1a2a40;border-radius:8px;padding:10px;color:#8ea6be;font:11px/1.6 Consolas,monospace;white-space:pre-wrap;word-break:break-word}.notice{color:#8295ad;font-size:10px;margin-top:9px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.hint{color:#74879f;font-size:10px}.saved{font-size:10px;color:#7791a8;margin-left:auto}.bottom{margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.footstat{display:flex;justify-content:space-between;gap:8px;color:#8093aa;font-size:11px;padding:11px 14px;background:#0c1827;border:1px solid var(--line);border-radius:9px}.footstat b{font-weight:500;color:#c8d7e8}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#10243a;border:1px solid #34516d;color:#d9e8f5;padding:10px 16px;border-radius:9px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
+@media(max-width:1060px){.app{grid-template-columns:72px minmax(0,1fr)}.side{padding:20px 10px;align-items:center}.brand{padding:0}.brand>div:last-child,.nav-title,.nav a span:last-child,.side-foot{display:none}.nav{width:100%;margin:0}.nav a{justify-content:center;padding:12px 0}.grid{grid-template-columns:1fr}.main{padding:18px}.stack.right{grid-template-columns:1fr 1fr}.bottom{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.main{padding:14px}.hero{align-items:flex-start;gap:12px;flex-direction:column}.hero h1{font-size:21px}.hero-actions{width:100%}.hero-actions .btn{flex:1}.top{margin-bottom:12px}.chip.hide-mobile{display:none}.stack.right{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.bottom{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.placeholder{height:230px}.buttons .btn{min-width:calc(50% - 8px)}}
+</style></head><body>
+<div class="app"><aside class="side"><div class="brand"><div class="brand-mark">◈</div><div><strong>慧眼哨兵</strong><small>EDGE VIDEO SYSTEM</small></div></div><div class="nav-title">工作台</div><nav class="nav"><a class="active" href="#dashboard"><span class="ico">▦</span><span>设备总览</span></a><a href="#playback"><span class="ico">▷</span><span>视频控制</span></a><a href="#capture"><span class="ico">▣</span><span>截图与录像</span></a><a href="#settings"><span class="ico">⚙</span><span>连接设置</span></a></nav><div class="side-foot"><span class="led"></span><b id="sideState">等待连接</b><small>控制服务仅运行于本机</small></div></aside>
+<main class="main" id="dashboard"><header class="top"><div class="crumb">控制中心　/　<b>设备总览</b></div><div class="top-right"><span class="chip"><span class="led" id="topLed"></span><span id="topState">未连接</span></span><span class="chip hide-mobile" id="topHost">尚未设置设备</span><div class="top-user">管</div></div></header>
+<section class="hero"><div><div class="eyebrow">RK3576 · FPGA VIDEO</div><h1>设备控制台</h1><p>远程控制视频采集、显示与本地存储</p></div><div class="hero-actions"><button class="btn" data-action="status">刷新状态</button><button class="btn primary" data-action="ping">连接测试</button></div></section>
+<div class="grid"><div class="stack"><section class="card"><div class="card-head"><div><h2>视频输出监控</h2><p>HDMI 端仍由 RK3576 本机输出</p></div><span class="badge">本版不传视频流</span></div><div class="panel-body"><div class="placeholder"><div class="cross"></div><div class="placeholder-content"><div class="placeholder-icon">◉</div><strong>网页预览尚未启用</strong><p>视频继续输出至 HDMI；本页面只提供设备控制与状态</p></div></div><div class="preview-meta"><span>视频画面 <b>HDMI 本地显示</b></span><span>网络预览 <b>关闭</b></span><span>采集链路 <b id="sourceSummary">未启动</b></span></div><div class="metrics"><div class="metric"><span>设备连接</span><strong id="metricConnection">待连接</strong><small>SSH 控制通道</small></div><div class="metric"><span>播放状态</span><strong id="metricPlayback">停止</strong><small id="metricMode">等待启动</small></div><div class="metric"><span>图像处理</span><strong id="metricYolo">关闭</strong><small>stats · 最高 30 FPS</small></div><div class="metric"><span>存储位置</span><strong>TF 卡</strong><small>/mnt/tf/FPGA_Captures</small></div></div></div></section>
+<section class="card" id="capture"><div class="card-head"><div><h2>截图与录像</h2><p>采集与主播放分支隔离，停止录像不停止播放</p></div><span class="badge">保存到 TF 卡</span></div><div class="panel-body"><div class="buttons"><button class="btn" data-action="snapshot">▧　截图</button><button class="btn good" data-action="record-start">●　开始录像</button><button class="btn stop" data-action="record-stop">■　停止录像</button><button class="btn" data-action="capture-status">录像状态</button></div><div class="notice">路径：板卡 <b>/mnt/tf/FPGA_Captures</b>。板卡需已挂载 TF 卡且目录可写。</div></div></section></div>
+<div class="stack right"><section class="card" id="playback"><div class="card-head"><div><h2>播放控制</h2><p>启动前确认设备空闲、FPGA 与采集链路正常</p></div><span class="badge" id="playBadge">STOPPED</span></div><div class="panel-body"><div class="section-label">采集参数</div><div class="form-grid"><div class="field"><label for="source">数据链路</label><select id="source"><option value="raw">原图 RGB24</option><option value="lz77">BLK1 / LZ77 解码</option></select></div><div class="field"><label for="mode">FPGA 图像模式</label><select id="mode"><option value="0">Mode 0 · 原始画面</option><option value="1">Mode 1</option><option value="2">Mode 2</option><option value="3">Mode 3</option><option value="4">Mode 4</option><option value="5">Mode 5</option><option value="6">Mode 6</option><option value="8">Mode 8 · 低照度增强</option><option value="9">Mode 9 · 去雾</option></select></div><div class="field"><label for="connector">HDMI Connector ID</label><input id="connector" inputmode="numeric" value="188"></div><div class="field"><label>控制器</label><input value="RK3576 · PCIe FPGA" disabled></div>
+<div class="field full" id="dmaWaitWrap">
+<label for="dmaWait">LZ77 DMA 等待预算</label>
+<div class="row"><select id="dmaWait" aria-describedby="dmaWaitHint dmaWaitActual">
+<option value="0">0 微秒 · 关闭优化</option>
+<option value="10">10 微秒 · 较低 CPU 占用</option>
+<option value="20" selected>20 微秒 · 推荐配置</option>
+</select><button class="btn" id="applyDmaWait" data-action="dma-wait-set">应用预算</button></div>
+<div class="notice" id="dmaWaitActual" role="status">板端当前值：尚未读取</div>
+<div class="notice" id="dmaWaitHint">选择 LZ77 后可应用；连接测试或刷新状态可读取板端实际值。</div>
+</div></div><div class="divider"></div><div class="row"><label class="toggle"><input id="yolo" type="checkbox">启用 YOLO 检测与叠框</label><span class="hint">stats · 30 FPS</span></div><div class="field full" id="modelWrap" style="display:none;margin-top:10px"><label for="model">RKNN 模型路径</label><input id="model" value="/home/linaro/deploy/yolo/yolov5s_relu.rknn"></div><label class="toggle" id="kmsWrap" style="display:none;margin-top:10px"><input id="kms" type="checkbox" checked>使用 KMS 独立叠框 plane</label><div class="divider"></div><div class="buttons"><button class="btn primary" data-action="start">▶　启动播放</button><button class="btn stop" data-action="stop">■　停止播放</button></div><div class="notice">启动后视频仍在板卡 HDMI 输出。LZ77 模式沿用 4 KiB DMA read。</div></div></section>
+<section class="card" id="settings"><div class="card-head"><div><h2>设备连接</h2><p>板卡地址可变更，设置保存在此浏览器</p></div><span class="saved" id="savedLabel">自动保存</span></div><div class="panel-body"><div class="form-grid"><div class="field full"><label for="host">板卡 IP / 主机名</label><input id="host" autocomplete="off" value="192.168.137.194" placeholder="例如 192.168.137.194"></div><div class="field"><label for="username">SSH 用户名</label><input id="username" value="linaro" autocomplete="username"></div><div class="field"><label for="port">SSH 端口</label><input id="port" inputmode="numeric" value="22"></div><div class="field full"><label for="deployDir">板端 deploy 路径</label><input id="deployDir" value="/home/linaro/deploy"></div></div><div class="notice">使用 Windows OpenSSH 密钥认证；网页不保存 SSH 密码。Xftp 可继续同时连接。</div></div></section>
+<section class="card"><div class="card-head"><div><h2>控制台消息</h2><p>连接结果与板端操作反馈</p></div><button class="btn" id="clearLog">清除</button></div><div class="panel-body"><div class="statusline" id="statusline"><span class="dot"></span><span id="statusText">请设置地址并进行连接测试</span></div><div class="log" id="log" style="margin-top:10px">FPGA Control Console v1.0&#10;本地控制服务就绪，等待连接设备。</div></div></section></div></div>
+<footer class="bottom"><div class="footstat"><span>SSH 控制</span><b id="footSsh">未连接</b></div><div class="footstat"><span>视频预览</span><b>未启用</b></div><div class="footstat"><span>截图 / 录像目录</span><b>/mnt/tf/FPGA_Captures</b></div></footer></main></div><div class="toast" id="toast"></div>
+<script>
+
+const TOKEN="__TOKEN__", $=id=>document.getElementById(id);
+const ids=['host','username','port','deployDir','source','mode','connector','yolo','model','kms','dmaWait'];
+const settingKeys={deployDir:'deploy_dir',kms:'kms_overlay',dmaWait:'dma_wait_us'};
+let busy=false, dmaSupported=null, statusTarget='';
+
+function settings(){
+  return {host:$('host').value.trim(),username:$('username').value.trim(),
+    port:$('port').value.trim(),deploy_dir:$('deployDir').value.trim(),
+    source:$('source').value,mode:$('mode').value,connector:$('connector').value.trim(),
+    yolo:$('yolo').checked,model:$('model').value.trim(),kms_overlay:$('kms').checked,
+    dma_wait_us:$('dmaWait').value};
+}
+function save(){
+  const s=settings();localStorage.setItem('fpgaControlSettings',JSON.stringify(s));
+  const target=JSON.stringify([s.host,s.username,s.port,s.deploy_dir]);
+  if(statusTarget&&statusTarget!==target){
+    dmaSupported=null;$('dmaWaitActual').textContent='连接设置已变更，请重新读取板端当前值';
+  }
+  statusTarget=target;
+  $('topHost').textContent=s.host||'尚未设置设备';$('savedLabel').textContent='已保存';
+  setTimeout(()=>$('savedLabel').textContent='自动保存',900);
+}
+function syncControls(){
+  const raw=$('source').value!=='lz77';
+  $('dmaWait').disabled=busy||raw;$('applyDmaWait').disabled=busy||raw;
+  $('dmaWaitHint').textContent=raw?'RAW 链路不使用此优化，启动 RAW 不修改板端预算。':
+    dmaSupported===false?'当前驱动不支持；可选择 0 使用原等待路径，或加载候选驱动。':
+    '启动 LZ77 时应用所选值；也可在播放中应用。停止播放后保留，驱动重载后恢复默认 0。';
+}
+function load(){
+  try{
+    const s=JSON.parse(localStorage.getItem('fpgaControlSettings')||'{}');
+    for(const id of ids){
+      const k=settingKeys[id]||id;
+      if(s[k]!==undefined){
+        if(id==='yolo'||id==='kms')$(id).checked=!!s[k];
+        else if(id!=='dmaWait'||['0','10','20'].includes(String(s[k])))$(id).value=String(s[k]);
+      }
+    }
+  }catch{}
+  const initial=settings();
+  statusTarget=JSON.stringify([initial.host,initial.username,initial.port,initial.deploy_dir]);
+  toggleYolo();syncControls();$('topHost').textContent=$('host').value;
+}
+function toggleYolo(){
+  $('modelWrap').style.display=$('yolo').checked?'grid':'none';
+  $('kmsWrap').style.display=$('yolo').checked?'flex':'none';
+}
+function updateDmaStatus(d,action){
+  if(d.dma_wait_supported===false){
+    dmaSupported=false;$('dmaWaitActual').textContent='板端当前值：驱动不支持 DMA 等待优化';
+  }else if(d.dma_wait_supported===true){
+    dmaSupported=true;
+    $('dmaWaitActual').textContent=Number.isInteger(d.dma_wait_us)?
+      '板端当前值：'+d.dma_wait_us+' 微秒'+(d.dma_wait_us===0?'（关闭）':'（已生效）'):
+      '板端支持此功能，但当前值读取失败';
+    if(d.dma_profile_enabled===true)$('dmaWaitActual').textContent+='；阶段计时已开启，可能影响帧率';
+  }else if(['ping','status','start','dma-wait-set'].includes(action)){
+    dmaSupported=null;$('dmaWaitActual').textContent='板端未返回预算状态，请更新 web_control_board.sh 后刷新';
+  }
+  syncControls();
+}
+function message(text,kind=''){
+  $('statusText').textContent=text;$('statusline').className='statusline '+kind;
+  $('topState').textContent=kind==='online'?'已连接':kind==='error'?'连接异常':'处理中';
+  $('sideState').textContent=kind==='online'?'设备在线':kind==='error'?'连接异常':'等待连接';
+  $('footSsh').textContent=kind==='online'?'在线':kind==='error'?'异常':'未连接';
+  $('metricConnection').textContent=kind==='online'?'在线':kind==='error'?'异常':'待连接';
+}
+function toast(t){
+  const x=$('toast');x.textContent=t;x.classList.add('show');
+  setTimeout(()=>x.classList.remove('show'),2100);
+}
+async function run(action){
+  if(busy)return;
+  save();const sent=settings();busy=true;
+  document.querySelectorAll('[data-action]').forEach(b=>b.disabled=true);
+  ids.forEach(id=>$(id).disabled=true);syncControls();
+  message('正在通过 SSH 执行：'+action);$('log').textContent='> '+action+'\n等待 RK3576 响应…';
+  try{
+    const r=await fetch('/api/action',{method:'POST',
+      headers:{'Content-Type':'application/json','X-Control-Token':TOKEN},
+      body:JSON.stringify({...sent,action})});
+    const d=await r.json();$('log').textContent='> '+action+'\n'+(d.output||'');
+    $('log').scrollTop=$('log').scrollHeight;updateDmaStatus(d,action);
+    if(!d.ok)throw Error(d.output||'操作失败');
+    message(action==='ping'||action==='status'?'设备响应正常':'操作完成','online');
+    if((action==='ping'||action==='status')&&/PLAYBACK=(running|stopped)/.test(d.output||'')){
+      const running=/PLAYBACK=running/.test(d.output||'');
+      const session=(d.output||'').match(/^SESSION=(raw|lz77) ([0-9]+) ([0-9]+) ([01])$/m);
+      $('metricPlayback').textContent=running?'运行中':'停止';$('playBadge').textContent=running?'RUNNING':'STOPPED';
+      $('sourceSummary').textContent=running?(session?session[1]:'已启动'):'未启动';
+      $('metricMode').textContent=running?(session?'Mode '+session[2]:'板端会话已运行'):'等待启动';
+      if(session)$('metricYolo').textContent=session[4]==='1'?'开启':'关闭';
+    }else if(action==='start'){
+      $('metricPlayback').textContent='启动中';$('playBadge').textContent='STARTING';
+      $('sourceSummary').textContent=sent.source==='raw'?'原图':'LZ77';
+      $('metricMode').textContent='Mode '+sent.mode;$('metricYolo').textContent=sent.yolo?'开启':'关闭';
+    }else if(action==='stop'){
+      $('metricPlayback').textContent='停止';$('playBadge').textContent='STOPPED';$('sourceSummary').textContent='未启动';
+    }
+    toast(action==='dma-wait-set'?'预算已读回确认，板端状态见上方':'操作成功');
+  }catch(e){
+    message('操作失败，请查看控制台消息','error');$('log').textContent+='\n\n'+String(e);toast('连接或操作失败');
+  }finally{
+    busy=false;document.querySelectorAll('[data-action]').forEach(b=>b.disabled=false);
+    ids.forEach(id=>$(id).disabled=false);syncControls();
+  }
+}
+ids.forEach(id=>$(id).addEventListener('change',()=>{
+  save();if(id==='yolo')toggleYolo();if(id==='source')syncControls();
+}));
+['host','username','port','deployDir','connector','model'].forEach(id=>$(id).addEventListener('input',save));
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>run(b.dataset.action)));
+$('clearLog').addEventListener('click',()=>$('log').textContent='');load();
+
+</script></body></html>

@@ -1,0 +1,66 @@
+standard
+***Report Model: top_debug_hub Device: PH1A90SEG324***
+
+Design Statistics
+#IO                       126   out of    148   85.14%
+  #input                   58
+  #output                  68
+  #inout                    0
+#lut                      136
+  #lut1                    10
+  #lut2                    24
+  #lut3                    59
+  #lut4                    11
+  #lut5                    12
+  #lut6                    20
+#reg                      522
+  #slice reg              522   out of 128640    0.41%
+  #pad reg                  0
+
+Utilization Statistics
+#slice                    177   out of  64320    0.28%
+  #used ram                 0
+    #dram lut               0
+    #shifter lut            0
+  #used logic             177
+    #with luts             94
+    #with adder             0
+    #reg only              83
+#f7mux                      0   out of  32160    0.00%
+#f8mux                      0   out of  16080    0.00%
+#eram                       0   out of    272    0.00%
+  #eram20k                  0
+  #fifo20k                  0
+#dsp                        0   out of    240    0.00%
+#pcie                       0   out of      1    0.00%
+#serdes dual                0   out of      4    0.00%
+#ddr_cal                    0   out of      1    0.00%
+#ddr_bank                   0   out of      2    0.00%
+#pad                        0   out of    148    0.00%
+#pll                        0   out of     12    0.00%
+#gclk                       0   out of     32    0.00%
+#lclk                       0   out of     36    0.00%
+#sclk                       0   out of     96    0.00%
+#mlclk                      0   out of     16    0.00%
+#ioclk                      0   out of     18    0.00%
+
+* Note! The LUT and Slice count after Optimize-Gate is not the final value, Run Optimize-place for a more realistic count.
+
+Report Hierarchy Area:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|Instance                  |Module                        |logic lut |ripple  |seq     |eram    |dsp     |dram lut |shifter lut |f7mux   |f8mux   |pll     |serdes   |pcie    |ddr     |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|top                       |top_debug_hub                 |94        |0       |522     |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  U_0_handshake_sync_ctrl |anlogic04_handshake_sync_ctrl |3         |0       |82      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    U_handshake_sync      |anlogic03_handshake_sync      |1         |0       |9       |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  U_0_handshake_sync_stat |anlogic05_handshake_sync_stat |3         |0       |58      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    U_handshake_sync      |anlogic03_handshake_sync      |3         |0       |9       |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  U_0_register            |anlogic02_register            |52        |0       |151     |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  U_1_handshake_sync_ctrl |anlogic04_handshake_sync_ctrl |3         |0       |58      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    U_handshake_sync      |anlogic03_handshake_sync      |1         |0       |9       |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  U_1_handshake_sync_stat |anlogic05_handshake_sync_stat |3         |0       |58      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|    U_handshake_sync      |anlogic03_handshake_sync      |3         |0       |9       |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  U_1_register            |anlogic02_register            |16        |0       |48      |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  U_jtdo_sel_mux          |anlogic06_jtdo_sel_mux        |1         |0       |0       |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
+|  U_tap                   |anlogic01_tap                 |11        |0       |3       |0       |0       |0        |0           |0       |0       |0       |0        |0       |0       |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

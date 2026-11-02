@@ -1,0 +1,50 @@
+{
+  "version": "0x56440022",
+  "status": "Debug bitstream generated; hardware unverified; timing NOT signed off",
+  "sources": {
+    "uisrc/01_rtl/rgb128_byte_stream.v": "9f355178a5c95334e3d70b7faf5c6ae6773579f8f9de5bd30973fa2734700c95",
+    "uisrc/01_rtl/lz77_frame_formatter.v": "4c0eadcdb1f0e46634b047289e2999bbc75563e9e47ca7563689757fbe0faa97",
+    "uisrc/01_rtl/lz77_rgb_c2h_path.v": "3b519a987d2385abca9254a6883eb17f49d1279b62b1575d254983e4a778a3d2",
+    "uisrc/01_rtl/lz77_repeat_encoder.v": "332a8995e06e10d46a3f0035a4fab34ca81c22ab42a9c32932ceb9a97a802f75",
+    "uisrc/01_rtl/lz77_c2h_word_packer.v": "1cf6ebf7e52ad9db8859ac89c722e7a2bdbf164a6bb460657fef511f1fefb1a0",
+    "uisrc/03_ip/vid_pipeline/sync_fifo_130.v": "7ce81e8950c7f62c08e4b96f968c068c1615d042ddd0703e60045a729af94d8b",
+    "uisrc/03_ip/vid_pipeline/cam_video_source.v": "9646259db3125183426d294f8a6e6c04db2426fbc2d869b8f47c0e9d0b02902e",
+    "uisrc/01_rtl/imx415_pcie_top.v": "c330945130de1f093f4b0318b9278cd5a824a1fe5aea9b55318bdade8648df7f",
+    "uisrc/01_rtl/param_imx415.v": "89886eb7fe57bd62e03b43f6c3dcf6f8fbd06012bbb7c57a95294eb4368e40c2",
+    "uisrc/04_pin/imx415_pcie.sdc": "7adb2619f7136e1a0b2a4dd2b8481ca67f9182aeb043f6dcc0657b6e8ce53995"
+  },
+  "timing": {
+    "setup_WNS_ns": -22.377,
+    "hold_WNS_ns": -2.881
+  },
+  "artifacts": {
+    "imx415_pcie_4k_v22_compress.bit": {
+      "bytes": 2996101,
+      "sha256": "8e60cdc05ab0f961ae94125d3f23a65b7dc5e89f3aebf538060b5d54d6d93f7a"
+    },
+    "imx415_pcie_4k_v22.bit": {
+      "bytes": 4850323,
+      "sha256": "f217c7cbf44bc76fe2759bc49f8b4732412a321118f679d3ba31cec84e8f8bba"
+    },
+    "timing.ts": {
+      "bytes": 74,
+      "sha256": "599e008580962ac05a07dc9cfeb651f9418735675c9df11261b90e16e667b253"
+    },
+    "final_timing.rpt": {
+      "bytes": 4163087,
+      "sha256": "05962fa2794f0b700147b2bff6d42b594bf6e70a3e3d226821d720b09e43df0e"
+    },
+    "test_lz77_frames.sh": {
+      "bytes": 1825,
+      "sha256": "37122fa3ac3bcf829a6b3d1330a5c4cd55da8680b2dea6db9e3d0a1feb4fffef"
+    },
+    "diag_lz77.sh": {
+      "bytes": 670,
+      "sha256": "ee8f6c3e1d15c13ba3fd47d49c70002de5e3ebdf17723b067c30bb5df6482a93"
+    },
+    "README.md": {
+      "bytes": 4341,
+      "sha256": "e6fc9a4348c4e9dc2c1b00ebc61fc6d892919cffe2656a80e5af24322c7be08d"
+    }
+  }
+}

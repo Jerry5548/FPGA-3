@@ -1,0 +1,52 @@
+[
+  {
+    "directory": "mode1.hVo91Z",
+    "bytes": 6220800,
+    "rgb_channels_equal": true,
+    "min": 7,
+    "max": 254,
+    "mean": 41.251,
+    "black_percent": 0.0,
+    "white_percent": 0.0,
+    "levels": 245,
+    "png": "D:\\FPGA\\AFC03_IMX415_PCIE_X1_test\\IMX415_PCIE_X1\\uisrc\\06_doc\\image_review_20261009\\mode1.hVo91Z.png"
+  },
+  {
+    "directory": "mode1.WwPho4",
+    "bytes": 6220800,
+    "rgb_channels_equal": true,
+    "min": 7,
+    "max": 238,
+    "mean": 35.816,
+    "black_percent": 0.0,
+    "white_percent": 0.0,
+    "levels": 229,
+    "png": "D:\\FPGA\\AFC03_IMX415_PCIE_X1_test\\IMX415_PCIE_X1\\uisrc\\06_doc\\image_review_20261009\\mode1.WwPho4.png"
+  },
+  {
+    "directory": "mode5.trS0v2",
+    "bytes": 6220800,
+    "rgb_channels_equal": true,
+    "min": 0,
+    "max": 255,
+    "mean": 41.282,
+    "black_percent": 0.032,
+    "white_percent": 0.0,
+    "levels": 256,
+    "png": "D:\\FPGA\\AFC03_IMX415_PCIE_X1_test\\IMX415_PCIE_X1\\uisrc\\06_doc\\image_review_20261009\\mode5.trS0v2.png",
+    "bmp_matches_raw": true
+  },
+  {
+    "directory": "mode6.Ct1KZf",
+    "bytes": 6220800,
+    "rgb_channels_equal": true,
+    "min": 0,
+    "max": 255,
+    "mean": 0.432,
+    "black_percent": 99.831,
+    "white_percent": 0.169,
+    "levels": 2,
+    "png": "D:\\FPGA\\AFC03_IMX415_PCIE_X1_test\\IMX415_PCIE_X1\\uisrc\\06_doc\\image_review_20261009\\mode6.Ct1KZf.png",
+    "bmp_matches_raw": true
+  }
+]

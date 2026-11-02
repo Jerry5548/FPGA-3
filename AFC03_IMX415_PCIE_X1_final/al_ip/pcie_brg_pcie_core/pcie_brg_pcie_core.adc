@@ -1,0 +1,2 @@
+set_ipinst_assignment {u0_pcie_brg_pcie_core_pcie_top} {location=x147y180z0;}
+set_ipinst_assignment {u2_pcie_brg_pcie_core_phy0_top} {location=x147y240z0;}

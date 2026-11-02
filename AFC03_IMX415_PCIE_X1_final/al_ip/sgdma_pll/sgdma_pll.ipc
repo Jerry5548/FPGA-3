@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GPllConfig>
+    <Config>
+        <ALL_CLK_STATE>3</ALL_CLK_STATE>
+        <BandWidth>High</BandWidth>
+        <CLK0_BUFG>SBUF</CLK0_BUFG>
+        <CLK0_CLKENABLE>DISABLE</CLK0_CLKENABLE>
+        <CLK0_CLKINV>DISABLE</CLK0_CLKINV>
+        <CLK0_DUTYCYCLE>0.5000</CLK0_DUTYCYCLE>
+        <CLK0_FRAC_ENABLE>DISABLE</CLK0_FRAC_ENABLE>
+        <CLK0_FREQ>125.0000</CLK0_FREQ>
+        <CLK0_PHASESHIFT>0.0000</CLK0_PHASESHIFT>
+        <CLK1_BUFG>NONE</CLK1_BUFG>
+        <CLK1_CLKENABLE>DISABLE</CLK1_CLKENABLE>
+        <CLK1_CLKINV>DISABLE</CLK1_CLKINV>
+        <CLK1_DUTYCYCLE>0.5000</CLK1_DUTYCYCLE>
+        <CLK1_FREQ>25.0000</CLK1_FREQ>
+        <CLK1_PHASESHIFT>0.0000</CLK1_PHASESHIFT>
+        <CLK2_BUFG>NONE</CLK2_BUFG>
+        <CLK2_CLKENABLE>DISABLE</CLK2_CLKENABLE>
+        <CLK2_CLKINV>DISABLE</CLK2_CLKINV>
+        <CLK2_DUTYCYCLE>0.5000</CLK2_DUTYCYCLE>
+        <CLK2_FREQ>24.0000</CLK2_FREQ>
+        <CLK2_PHASESHIFT>0.0000</CLK2_PHASESHIFT>
+        <CLK_CNT>8</CLK_CNT>
+        <CLK_IN1_ENABLE>DISABLE</CLK_IN1_ENABLE>
+        <CLK_OUT>DISABLE</CLK_OUT>
+        <DYN_CPHASE_SHIFT>DISABLE</DYN_CPHASE_SHIFT>
+        <DYN_FINE_PHASE_SHIFT>DISABLE</DYN_FINE_PHASE_SHIFT>
+        <FEEDBACK_CLK>CLKC0</FEEDBACK_CLK>
+        <FEEDBACK_MODE>Normal</FEEDBACK_MODE>
+        <FRAC_N_ENABLE>DISABLE</FRAC_N_ENABLE>
+        <INPUT_FREQ>25.000000000</INPUT_FREQ>
+        <INPUT_UNIT>MHz</INPUT_UNIT>
+        <OPT_CONFIG>Clock Frequency</OPT_CONFIG>
+        <PLL_LOCK>ENABLE</PLL_LOCK>
+        <POWER_DOWN>DISABLE</POWER_DOWN>
+        <RESET>ENABLE</RESET>
+        <SSC_ENABLE>DISABLE</SSC_ENABLE>
+    </Config>
+    <GeneralConfig>
+        <Device>PH1A90SEG324</Device>
+        <IP_ID>30</IP_ID>
+        <Type>PLL</Type>
+        <Version>1.0</Version>
+        <create_VHDL>true</create_VHDL>
+        <inst>sgdma_pll</inst>
+    </GeneralConfig>
+    <GeneratedFiles>
+        <VHDL Enable="false">sgdma_pll.vhd</VHDL>
+        <Verilog Enable="true">sgdma_pll.v</Verilog>
+    </GeneratedFiles>
+</GPllConfig>
